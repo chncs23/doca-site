@@ -8,17 +8,22 @@
   <tr height="50">
     <th scope="col">
     <?php
-		require_once("callconnection.php");	
-		$strSQL = "DELETE FROM activity ";
-		$strSQL .="WHERE act_id = '".$_GET["Sendid"]."' ";
-		$objQuery = mysql_query($strSQL);
+		require_once("callconnectionimproved.php");
+
+    $deleteActivityImgSQL = "DELETE FROM image ";
+		$deleteActivityImgSQL .="WHERE act_id = '".$_GET["Sendid"]."' ";
+    mysqli_query($conn, $deleteActivityImgSQL);
+
+		$deleteActivitySQL = "DELETE FROM activity ";
+		$deleteActivitySQL .="WHERE act_id = '".$_GET["Sendid"]."' ";
+		$objQuery = mysqli_query($conn, $deleteActivitySQL);
 		if($objQuery)
 		{
 			echo "Record Deleted.";
 		}
 		else
 		{
-			echo "Error Delete [".$strSQL."]";
+			echo "Error Delete [".$deleteActivitySQL."]";
 		}
 	?>
     </th>

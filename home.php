@@ -16,17 +16,17 @@
             $(this).children('ul').hide();
             })
       }
-    });        
-</script> 
+    });
+</script>
 
-<!-- Script Silde Image-->   
+<!-- Script Silde Image-->
 <script language="javascript" type="text/javascript" src="js/jquery.js"></script>
 <script language="javascript" type="text/javascript" src="js/jquery.easing.js"></script>  <!--JS for Slide Image -->
 <script language="javascript" type="text/javascript" src="js/script.js"></script>
 <script type="text/javascript">
- $(document).ready( function(){	
+ $(document).ready( function(){
 		var buttons = { previous:$('#jslidernews2 .button-previous') ,
-						next:$('#jslidernews2 .button-next') };			 
+						next:$('#jslidernews2 .button-next') };
 		$('#jslidernews2').lofJSidernews( { interval:5000,
 											 	easing:'easeInOutQuad',
 												duration:1200,
@@ -36,15 +36,15 @@
 												navigatorHeight		: 60,
 												navigatorWidth		: 250,
 												maxItemDisplay:5,
-												buttons:buttons } );						
+												buttons:buttons } );
 	});
 
 </script>
 
 <style>
-	
+
 	ul.lof-main-wapper li {
-		position:relative;	
+		position:relative;
 	}
 	.style18 {font-size: 16pt; font-weight: ; font-family: "TH SarabunPSK", sans-serif; }
 
@@ -55,7 +55,7 @@ body {
 	margin-top: 0px;
 	margin-right: 0px;
 	margin-bottom: 0px;
-	
+
 }
 
 
@@ -76,7 +76,7 @@ body {
           background-color:#282828;
           position:fixed;
           bottom:0;
-       } 
+       }
 </style>
 
 <title>กรมกิจการพลเรือนทหารบก</title>
@@ -96,9 +96,9 @@ body {
 <table width="1120" border="0" align="center" cellpadding="0" cellspacing="0">
   <tr valign="top">
     <td colspan="4">
-  <?php 
+  <?php
 	require_once("scriptmenu.php");
-	?>     
+	?>
  <!-- End Menu ----------------------------------->
     </td>
 </table>
@@ -109,13 +109,13 @@ body {
   </tr>
 
   <tr>
-  	<!-- Left Panel--> 
+  	<!-- Left Panel-->
     <td width="250" rowspan="2" height="300" valign="center">
     <div align="center">
     <a href="http://doca.rta.mi.th/doca_king.php" target="_blank"><img src="images/king10.jpg" width="250" height="320" border="0" /></a>
     </div>
     </td>
-	<!-- Center Panel--> 
+	<!-- Center Panel-->
 	<!-- <td width="200" bordercolor="#666666" bgcolor="#CCCCCC" align="left">Hotnews :</td> -->
     <td width="100" height="10" align="center" background="images/hotnews_100x10.jpg"><span class="shadow">Hotnews >></span></td>
 
@@ -123,23 +123,23 @@ body {
 <!---- Free Text script ----->
 <marquee  behavior="scroll" direction="left" scrollamount="10" class="style1" onmouseover="this.stop();" onmouseout="this.start();">
     <span class="shadow">
-<?php 
-	require_once("callconnection.php");
-			
+<?php
+	require_once("callconnectionimproved.php");
+
 			  $strSQL = "SELECT * FROM fft WHERE fft_id != '' and fft_status ='y' order by fft_id desc";
-			  $objQuery = mysql_query($strSQL) or die ("Error Query [".$strSQL."]");
-			  $total=mysql_num_rows($objQuery);
-			  
+			  $objQuery = mysqli_query($conn, $strSQL) or die ("Error Query [".$strSQL."]");
+			  $total=mysqli_num_rows($objQuery);
+
 				if($total>0)
 				{
 				$count;
-				while ($objResult=mysql_fetch_array($objQuery)) 
+				while ($objResult=mysql_fetch_array($objQuery))
 					{
 					echo $objResult["fft_details"];
 					}
 					$count+=1;
 				}
- ?>	
+ ?>
     </span>
 </marquee>
     </td>
@@ -153,63 +153,63 @@ body {
 
  <?php
  // Query News Feeds Image
-require_once("callconnection.php");
-                                            
+require_once("callconnectionimproved.php");
+
 	$strSQL = "SELECT * FROM activity WHERE act_id !='' and act_enable ='y' order by act_id desc";
-	$objQuery = mysql_query($strSQL) or die ("Error Query [".$strSQL."]");
-	$total=mysql_num_rows($objQuery);
-												
+	$objQuery = mysqli_query($conn, $strSQL) or die ("Error Query [".$strSQL."]");
+	$total=mysqli_num_rows($objQuery);
+
 		  echo '<div class="main-slider-content" style="width:870px; height:300px;" align="left">';
 			echo '<ul class="sliders-wrap-inner">';
 			if($total>0)
 				{
-				$count;
-				while ($objResult=mysql_fetch_array($objQuery)) 
+				$count=0;
+				while ($objResult=mysqli_fetch_array($objQuery))
 					{
 					echo '<li>';
-					echo '<img src="'.$objResult["act_imagetitle"].'">';
-					echo '</li>'; 
+					echo '<img src="/doca/'.$objResult["act_imagetitle"].'">';
+					echo '</li>';
 					}
 					$count+=1;
-				}                    
-			echo '</ul>';	
+				}
+			echo '</ul>';
 		  echo '</div>';
 // Query News Feeds  Navigator
 		  echo '<div class="navigator-content">';
 			echo '<div class="navigator-wrapper">';
 				echo '<ul class="navigator-wrap-inner">';
-				
-					require_once("callconnection.php");
-									
+
+					require_once("callconnectionimproved.php");
+
 					$strSQL = "SELECT * FROM activity WHERE act_id !=''and act_enable ='y' order by act_id desc";
-					$objQuery = mysql_query($strSQL) or die ("Error Query [".$strSQL."]");
-					$total=mysql_num_rows($objQuery);
-					
+					$objQuery = mysqli_query($conn, $strSQL) or die ("Error Query [".$strSQL."]");
+					$total=mysqli_num_rows($objQuery);
+
 					if($total>0)
 					{
 					$count;
-					while ($objResult=mysql_fetch_array($objQuery)) 
+					while ($objResult=mysqli_fetch_array($objQuery))
 						{
 						echo '<li>'.'<div class="shadow">';
 						echo $objResult["act_topic"];
-						echo '</div>'.'</li>'; 
+						echo '</div>'.'</li>';
 						}
 						$count+=1;
-					}                          
+					}
 				echo '</ul>';
 			echo '</div>';
 		  echo '</div>';
-?> 
+?>
 <!----------------- End Navigator --------------------->
 <div class="button-next"></div>
 <!-- Btn Start/Stop ------>
 <div class="button-control"><span></span></div>
-<!-- END Btn Start/Stop -->     
+<!-- END Btn Start/Stop -->
 </div>
     </td>
 <!----------------- End Main Feed content ------------->
   </tr>
-  
+
  </table>
 
 
@@ -229,30 +229,30 @@ require_once("callconnection.php");
         <a href="https://drive.google.com/file/d/0Bw_W-lJh2kjBblEzWjl4akdBOGc/view" target="_blank"><img src="images/election2550.png" width="250" vspace="0" border="0" /></a>
 
     </div>
-    
-   
+
+
     </td>
     <td width="635" align="left" background="images/baseBG.png">
-    
+
         <!-- <a href="http://doca.rta.mi.th/doca-king10-wishwell2560.php" target="_blank"> <img src="images/doca-king10-wishwell2560/Banner-KingBlessing.png"></a> -->
-        
+
         <a href="http://doca.rta.mi.th/doca_king-9.php" target="_blank"> <iframe width="635" height="315" src="https://www.youtube.com/embed/videoseries?list=PLNgxVZwie3t_4Sjki1Gr2BUt6wWPCsV4G" frameborder="0" allowfullscreen="allowfullscreen"></iframe><img src="images/song-of-king9.png" /></a>
         <a href="document/computer-law59.pdf" target="_blank"><img src="images/computer-law59.jpg" /></a>
-         
+
     	<a href="" target="_blank"><img src="images/central_panel635x25_activity.jpg"/></a><br>
-<?php 
-	require_once("callconnection.php"); 
-			
+<?php
+	require_once("callconnectionimproved.php");
+
 			  $strSQL = "SELECT * FROM activity WHERE act_id != '' order by act_id desc LIMIT 10";
-			  $objQuery = mysql_query($strSQL) or die ("Error Query [".$strSQL."]");
-			  $total=mysql_num_rows($objQuery);
+			  $objQuery = mysqli_query($conn, $strSQL) or die ("Error Query [".$strSQL."]");
+			  $total=mysqli_num_rows($objQuery);
 			  //$sendRID  = $objResult["act_id"];
 
-				
+
 				if($total>0)
 				{
-				$count;
-				while ($objResult=mysql_fetch_array($objQuery)) 
+				$count = 0;
+				while ($objResult=mysqli_fetch_array($objQuery))
 					{
 					//echo '<li>';
 					echo '<img src="images/bullet.jpg" alt="" width="10" height="10" border="0" class="style18" />';
@@ -263,25 +263,25 @@ require_once("callconnection.php");
 					echo '</a>';
 					//echo '<img src="images/icon_new2.gif" alt="" width="22" height="15" border="0" />';
 					//echo '</li>';
-					echo '</br>'; 					
+					echo '</br>';
 					}
-					$count+=1;
+					$count++;
 				}
  ?> <br>
 <a href="" target="_blank"><img src="images/central_panel635x25_information.jpg"/></a><br>
-<?php 
-require_once("callconnection.php");
-			
+<?php
+require_once("callconnectionimproved.php");
+
 			  $strSQL = "SELECT * FROM announcement WHERE ann_id != '' and 	ann_status='y' order by ann_id desc";
-			  $objQuery = mysql_query($strSQL) or die ("Error Query [".$strSQL."]");
-			  $total=mysql_num_rows($objQuery);
-			  
+			  $objQuery = mysqli_query($conn, $strSQL) or die ("Error Query [".$strSQL."]");
+			  $total=mysqli_num_rows($objQuery);
+
 				if($total>0)
 				{
 				$count;
-				while ($objResult=mysql_fetch_array($objQuery)) 
+				while ($objResult=mysqli_fetch_array($objQuery))
 					{
-					
+
 					//echo '<li>';
 					echo '<img src="images/bullet.jpg" alt="" width="10" height="10" border="0" class="style18" />';
 					echo '<a href="'.$objResult["ann_doc"].'" target="_blank">';
@@ -293,11 +293,11 @@ require_once("callconnection.php");
 					echo '</a>';
 					//echo '<img src="icon_new2.gif" alt="" width="22" height="15" border="0" />';
 					//echo '</li>';
-					echo '</br>';					
+					echo '</br>';
 					}
 					$count+=1;
 				}
- ?> 
+ ?>
  <br>
  <div align="center"><img src="images/splitter.jpg" alt="" width="630" height="1"/> </div>
   <br>
@@ -315,29 +315,29 @@ require_once("callconnection.php");
 <table width="1120" border="0" align="center" cellpadding="0" cellspacing="0">
 <tr>
 	<td width="1120" height="25" colspan="5" background="images/main_splitter1120x25_civil_info.jpg"></td>
-</tr> 
+</tr>
 <tr background="images/baseBG.png">
-    
+
     <td width="1120" height="75"><div align="center">
     <a href="http://tiwrm.haii.or.th//TyphoonTracking/wc.php?imgwc=lastest_wc.jpg" target="_blank">
     <img src="http://flood.gistda.or.th/buttons/flood-weather.png" width="224" height="75" vspace="2" border="0" /></a>
     </div></td>
-    
+
     <td width="224" height="75"><div align="center">
     <a href="http://live1.haii.or.th/wrf_image/show_rain_forecast_wrf.php?domain=domain03&home=n" target="_blank">
     <img src="http://flood.gistda.or.th/buttons/flood-rain.png" width="224" height="75" vspace="2" border="0" /></a>
     </div></td>
-    
+
     <td width="224" height="75"><div align="center">
     <a href="http://www.thaiwater.net/web/" target="_blank">
     <img src="http://flood.gistda.or.th/buttons/flood-thaiwater.png" width="224" height="75" vspace="2" border="0" /></a>
     </div></td>
-    
+
     <td width="224" height="75"><div align="center">
     <a href="http://earth.nullschool.net/" target="_blank">
     <img src="http://flood.gistda.or.th/buttons/wind.png" width="224" height="75" vspace="2" border="0" /></a>
     </div></td>
-    
+
     <td width="224" height="75"><div align="center">
     <a href="http://fms2.drr.go.th/" target="_blank">
     <img src="http://flood.gistda.or.th/buttons/flood-drr.png" width="224" height="75" vspace="2" border="0" /></a>
@@ -346,22 +346,22 @@ require_once("callconnection.php");
 
 <tr>
 	<td width="1120" height="25" colspan="5" background="images/main_splitter1120x25_Interesting.jpg"></td>
-</tr> 
+</tr>
 <tr background="images/baseBG.png">
     <td width="1120" height="75" colspan="2" valign="top"><div align="left">
-   <?php 
-	require_once("callconnection.php");
-			
+   <?php
+	require_once("callconnectionimproved.php");
+
 			  $strSQL = "SELECT * FROM journal WHERE journal_id != '' order by journal_id desc LIMIT 12";
-			  $objQuery = mysql_query($strSQL) or die ("Error Query [".$strSQL."]");
-			  $total=mysql_num_rows($objQuery);
-			  
+			  $objQuery = mysqli_query($conn, $strSQL) or die ("Error Query [".$strSQL."]");
+			  $total=mysqli_num_rows($objQuery);
+
 				if($total>0)
 				{
 				$count;
-				while ($objResult=mysql_fetch_array($objQuery)) 
+				while ($objResult=mysql_fetch_array($objQuery))
 					{
-					
+
 					//echo '<li>';
 					echo '<img src="images/bullet.jpg" alt="" width="10" height="10" border="0" class="style18" />';
 					echo '<a href="'.$objResult["journal_path"].'" target="_blank">';
@@ -370,17 +370,17 @@ require_once("callconnection.php");
 					//echo '<img src="images/icon_new2.gif" alt="" width="22" height="15" border="0" />';
 					echo '</br>';
 					//echo '</li>';
-					 				
+
 					}
 					$count+=1;
 				}
  ?>
     </div></td>
-   
+
     <td width="224" height="75" colspan="3" valign="middle"><div align="right">
     <a href="document/journal_doca34.pdf" target="_blank">
 	<img src="images/cover_doca34.png" alt="" width="175" height="235" border="0" /></a>
-	
+
 	<a href="document/poster_arrest.pdf" target="_blank">
 	<img src="images/cover-poster_arrest.jpg" alt="" width="175" height="235" border="0" /></a>
 
@@ -388,10 +388,10 @@ require_once("callconnection.php");
 	<img src="images/cover-poster_whymilitary.jpg" alt="" width="175" height="235" border="0" /></a></div>
     </td>
   </tr>
-  
+
   <tr>
 	<td width="1120" height="25" colspan="5" background=""><span class="style18">Doca Channel</span></td>
-  </tr> 
+  </tr>
   <tr background="images/baseBG.png">
 	<td width="1120" colspan="5" align="center">
     <iframe width="370" height="200" src="https://www.youtube.com/embed/videoseries?list=PLNgxVZwie3t-TOxSEy61R42EKaIOjDe23" frameborder="0" allowfullscreen></iframe>
@@ -401,7 +401,7 @@ require_once("callconnection.php");
     <iframe width="370" height="200" src="https://www.youtube.com/embed/62wV94ZZMnQ" frameborder="0" allowfullscreen></iframe>
     <iframe width="370" height="200" src="https://www.youtube.com/embed/qXpJ2HMLNbQ" frameborder="0" allowfullscreen></iframe>
     </td>
-    
+
 
   </tr>
 
@@ -467,7 +467,7 @@ require_once("callconnection.php");
 </tr>
 <tr>
 	<td width="1120" height="25" colspan="5" background="/images/main_splitter1120x25_concerned.jpg"></td>
-</tr> 
+</tr>
 <tr>
     <td width="1120" height="75"><div align="center">
     <a href="http://www.mod.go.th/Home.aspx" target="_blank">
@@ -478,22 +478,22 @@ require_once("callconnection.php");
     <a href="http://rtarf.mi.th" target="_blank">
     <img src="images/banner_rtarf.jpg" width="204" height="55" vspace="2" border="0" /></a>
     </div></td>
-    
+
     <td width="224" height="75"><div align="center">
     <a href="http://www.rta.mi.th/" target="_blank">
     <img src="images/banner-army.png" width="224" height="75" vspace="2" border="0" /></a>
     </div></td>
-    
+
     <td width="224" height="75"><div align="center">
     <a href="http://www3.navy.mi.th/" target="_blank">
     <img src="images/banner-navy.png" width="224" height="75" vspace="2" border="0" /></a>
     </div></td>
-    
+
     <td width="224" height="75"><div align="center">
     <a href="http://www.rtaf.mi.th/" target="_blank">
     <img src="images/banner-airforce.png" width="224" height="75" vspace="2" border="0" /></a>
     </div></td>
-    
+
 
 </tr>
 </table>

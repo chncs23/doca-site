@@ -1,0 +1,3 @@
+php_flag magic_quotes_gpc off
+Header unset ETag
+FileETag None
