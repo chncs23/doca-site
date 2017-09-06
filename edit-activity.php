@@ -9,7 +9,9 @@
 	<link rel="stylesheet" type="text/css" href="css/dropmenu.css" />
 	<script type="text/javascript" src="js/jquery-latest.js"></script>
 	<script type="text/javascript" src="js/jquery.tablesorter.js"></script>
+	<link rel="stylesheet" type="text/css" href="/doca/bootstrap/css/bootstrap.css">
 	<link href="themes/blue/style.css" rel="stylesheet" type="text/css">
+	<link href="https://fonts.googleapis.com/css?family=Taviraj" rel="stylesheet">
 	<script type="text/javascript">
 	$(document).ready(function() {
 		$("#myTable").tablesorter();
@@ -22,6 +24,7 @@
 	.style18 {font-size: 16pt; font-weight: ; font-family: "TH SarabunPSK", sans-serif; }
 	.style22 {font-size: 24pt; font-weight: bold; font-family: "TH SarabunPSK", sans-serif; }
 	body {
+		font-size: 10pt; font-family: 'Taviraj', serif;
 		background-image: url(../images/BG7.jpg);
 		background-repeat: repeat;
 		margin-left: 0px;
@@ -30,8 +33,9 @@
 		margin-bottom: 0px;
 	}
 
-	</style>
+	span {font-size: 10pt; font-family: 'Taviraj', serif;}
 
+	</style>
 	<!-- ------------------------------------------------------test Menu-->
 	<style type="text/css">
 	/* เมนูปกติ */
@@ -74,7 +78,7 @@
 	}
 	</style>
 
-	<title>..แก้ไขกิจกรรม..</title>
+	<title>แก้ไขกิจกรรม</title>
 </head>
 <body topmargin="">
 	<table width="1120" border="0" align="center" cellpadding="0" cellspacing="0">
@@ -88,11 +92,13 @@
 	<table width="1120" border="0" align="center" cellpadding="0" cellspacing="10">
 		<tr>
 			<td width="250" valign="top" background="images/baseBG.png"><?php require_once("scriptmenueditor.php"); ?></td>
-			<td align="left" valign="top" background="images/baseBG.png"><p><span class="style18">หน้าแก้ไขข่าวกิจกรรม</span></p>
+			<td align="left" valign="top" background="images/baseBG.png"><h2>หน้าแก้ไขข่าวกิจกรรม</h2>
 				<div align="right">
-					<a href="#" onClick="window.open('topic-add.php','','width=1366,height=650'); return false;" title="เพิ่มข่าวกิจกรรม">
-						<img src="/doca/images/btn-new.png" width="75" height="75"/>
-					</a>
+					<button
+					type="button"
+					class="btn btn-primary"
+					onClick="window.open('topic-add.php','','width=1366,height=700'); return false;"
+					title="เพิ่มข่าวกิจกรรม"><span class="glyphicon glyphicon-plus"></span> เพิ่มข่าวกิจกรรม</button>
 				</div>
 			</div>
 
@@ -118,15 +124,15 @@
 				error_reporting(E_ALL);
 
 				$tablehead = <<<HTML
-				<table id="myTable" class="tablesorter">
+				<table id="myTable" class="table table-bordered tablesorter ">
 					<thead>
 						<tr>
-							<th width="50"><span class="style18">รหัส</span></th>
-							<th width="100"><span class="style18">วันที่</span></th>
-							<th width=""><span class="style18">หัวข้อข่าว</span></th>
-							<th width="50"><span class="style18">สถานะ</span></th>
-							<th width="50"><span class="style18">แก้ไข</span></th>
-							<th width="50"><span class="style18">ลบ</span></th>
+							<th width="50"><span>รหัส</span></th>
+							<th width="100"><span>วันที่</span></th>
+							<th width=""><span>หัวข้อข่าว</span></th>
+							<th width="60"><span>สถานะ</span></th>
+							<th width="60"><span>แก้ไข</span></th>
+							<th width="60"><span>ลบ</span></th>
 
 						</tr>
 					</thead>
@@ -140,14 +146,14 @@ HTML;
 							$act_status  = $objResult['act_enable'];
 					$tablerow = <<<HTML
 					<tr>
-								<td ><span class="style16">$act_id</span></td>
-								<td ><span class="style16">$act_date</span></td>
-								<td ><span class="style16">$act_topic</span></td>
-								<td ><span class="style16">$act_status</span></td>
-								<td ><span class="style16">
+								<td ><span>$act_id</span></td>
+								<td ><span>$act_date</span></td>
+								<td ><span>$act_topic</span></td>
+								<td ><span>$act_status</span></td>
+								<td ><span>
 									<a href="topic-edit.php?Sendid=$act_id" onClick="window.open('topic-edit.php?Sendid=$act_id','','width=1366,height=650'); return false;" title="Add receive">แก้ไข</a></span></td>
 									<td>
-										<span class="style16">
+										<span>
 
 											<!-- แบบที่ 1 คลิกคำว่า ลบ แล้ว ไปหน้า delete-->
 											<a href="topic-delete.php?Sendid=$act_id" onClick="window.open('topic-delete.php?Sendid=$act_id','','width=250,height=150'); return false;" title="confirm delete">ลบ

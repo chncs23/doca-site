@@ -22,24 +22,19 @@ $act_status  = $Rows['act_enable'];
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<script src="ckeditor/ckeditor.js"></script>
-	<script src="bootstrap/js/bootstrap.js"></script>
-	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="/doca/ckeditor/ckeditor.js"></script>
+	<script src="/doca/ckfinder/ckfinder.js"></script>
+	<script src="/doca/bootstrap/js/bootstrap.js"></script>
+	<link rel="stylesheet" type="text/css" href="/doca/bootstrap/css/bootstrap.css">
+	<link href="https://fonts.googleapis.com/css?family=Taviraj" rel="stylesheet">
 
 	<style>
 	.style16 {font-size: 16pt; font-weight: bold; font-family: "TH SarabunPSK", sans-serif; }
 	.style18 {font-size: 18pt; font-weight: bold; font-family: "TH SarabunPSK", sans-serif; }
 	.style22 {font-size: 22pt; font-weight: bold; font-family: "TH SarabunPSK", sans-serif; }
-	body {
-		background-image: url(..images/BG7.jpg);
-		background-repeat: repeat;
-		margin-left: 0px;
-		margin-top: 0px;
-		margin-right: 0px;
-		margin-bottom: 0px;
-	}
-
+	label {font-family: 'Taviraj', serif;}
+	body {font-family: 'Taviraj', serif;}
 	</style>
 
 	<title></title>
@@ -65,52 +60,95 @@ function preview_cover() {
 <body>
 	<div class="container">
 		<p><span class="style22">แก้ไขข่าวกิจกรรม</span></p>
-					<form action="update_topic.php" method="post" enctype="multipart/form-data">
+		<form action="update_topic.php" method="post" enctype="multipart/form-data">
 
-						<input type="hidden" name="topic-id" value=<?php echo $receiveid;?>>
+			<input type="hidden" name="topic-id" value=<?php echo $receiveid;?>>
 
-						<div class="form-group">
-							<label for="title">หัวข้อข่าว</label>
-							<input type="text" class="form-control" name="topic" id="topic" placeholder="ระบุชื่อเรื่อง" value="<?php echo $act_topic;?>" required >
-						</div>
+			<div class="form-group">
+				<label for="title">หัวข้อข่าว</label>
+				<input type="text" class="form-control" name="topic" id="topic" placeholder="ระบุชื่อเรื่อง" value="<?php echo $act_topic;?>" required >
+			</div>
 
-						<div class="form-group">
-							<label for="editor1">เนื้อหาข่าว</label>
-							<textarea class="form-control" placeholder="ระบุเนื้อหา"  id="editor1" name="editor1" required><?php echo $act_details;?></textarea>
-							<script>
-								var editor = CKEDITOR.replace( 'editor1' );
-								CKFinder.setupCKEditor( editor );
-							</script>
-						</div>
+			<div class="form-group">
+				<label for="editor1">เนื้อหาข่าว</label>
+				<textarea class="form-control" placeholder="ระบุเนื้อหา" id="editor1" name="editor1" required><?php echo $act_details;?></textarea>
+				<script>
+				var editor = CKEDITOR.replace( 'editor1', {
+					filebrowserBrowseUrl: '/doca/ckfinder/ckfinder.html',
+					filebrowserImageBrowseUrl: '/doca/ckfinder/ckfinder.html?type=Images',
+					filebrowserUploadUrl: '/doca/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files',
+					filebrowserImageUploadUrl: '/doca/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images'
+				});
+				CKFinder.setupCKEditor( editor );
+				</script>
+			</div>
 
-						<div class="form-group">
-							<label for="coverPhoto">ภาพหน้าปก</label>
-							<input type="file" name="coverPhoto" id="coverPhoto" onchange="preview_cover();">
-							<div id="coverPreview" class="container"></div>
-						</div>
+			<?php if($act_imagetitle != '') {?>
+				<div class="form-group">
+					<label for="coverPhoto">ภาพหน้าปก</label>
+					<div class="container">
+						<div class="col-md-2"> <img src='/doca/<?php echo $act_imagetitle; ?>' width="304" height="236" class="img-thumbnail"> </div>
+					</div>
+				</div>
+			<?php } ?>
 
-						<div class="form-group">
-							<label for="galleryImage">ภาพข่าวเพิ่มเติม</label>
-							<input type="file" id="galleryImage" name="galleryImage[]" onchange="preview_gallery();" multiple/>
-							<div id="imagePreview" class="container"></div>
-						</div>
+			<div class="form-group">
+				<label for="coverPhoto">เปลี่ยนภาพหน้าปก</label>
+				<input type="file" name="coverPhoto" id="coverPhoto" onchange="preview_cover();">
+				<div id="coverPreview" class="container"></div>
+			</div>
 
-						<div class="form-group">
-							<label for="showAsCover">แสดงเป็นภาพสไลด์</label>
-							<select name="act_status">
-								<option value="n" <?php if ($act_status == 'n') echo ' selected="selected"'; ?>>ไม่ใช่</option>
-								<option value="y" <?php if ($act_status == 'y') echo ' selected="selected"'; ?>>ใช่</option>
-							</select></td>
 
-						</div>
-										<input type="submit" value="บันทึก" />
-										<input type="submit" name="cancelvalue" value="ปิด" onClick="self.close()">
-						</div>
+			<?php
+			$strImgSQL = "SELECT * FROM image WHERE act_id = '$receiveid'";
+			$objImgQuery = mysqli_query($conn, $strImgSQL) or die ("Error Query [".$strImgSQL."]");
+			if(mysqli_num_rows ($objImgQuery) > 0) { ?>
+				<div class="form-group">
+					<label for="galleryImage">ภาพข่าวเพิ่มเติม</label>
+					<div class="container">
+						<?php
+						while($objImgResult = mysqli_fetch_assoc($objImgQuery)) {
+							?>
+							<div class="col-md-2"> <img src='/doca/<?php echo $objImgResult['image_path']; ?>' width="304" height="236" class="img-thumbnail"> </div>
+							<?php
+						}
+						?>
+					</div>
+				</div>
+			<?php } ?>
 
-						</form>
-					</td>
-				</tr>
-			</table>
+			<div class="form-group">
+				<label for="galleryImage">เปลี่ยนภาพข่าวเพิ่มเติม</label>
+				<input type="file" id="galleryImage" name="galleryImage[]" onchange="preview_gallery();" multiple/>
+				<div id="imagePreview" class="container"></div>
+			</div>
+
+			<div class="form-group">
+				<label for="file_path">URL ไฟล์</label>
+				<input type="text" class="form-control" name="file_path" id="file_path" placeholder="ระบุ URL ไฟล์" value=<?php echo $act_filepath;?>>
+			</div>
+
+			<div class="form-group">
+				<label for="vdo_path">URL วีดิโอ</label>
+				<input type="text" class="form-control" name="vdo_path" id="vdo_path" placeholder="ระบุ URL วีดิโอ" value=<?php echo $act_vdopath;?>>
+			</div>
+
+			<div class="form-group">
+				<label for="showAsCover">แสดงเป็นภาพสไลด์</label>
+				<select name="act_status">
+					<option value="n" <?php if ($act_status == 'n') echo ' selected="selected"'; ?>>ไม่ใช่</option>
+					<option value="y" <?php if ($act_status == 'y') echo ' selected="selected"'; ?>>ใช่</option>
+				</select></td>
+
+			</div>
+			<input type="submit" value="บันทึก" />
+			<input type="submit" name="cancelvalue" value="ปิด" onClick="self.close()">
 		</div>
-	</body>
-	</html>
+
+	</form>
+</td>
+</tr>
+</table>
+</div>
+</body>
+</html>

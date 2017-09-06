@@ -5,7 +5,6 @@ require_once("callconnectionimproved.php");
 if(filesize($_FILES["coverPhoto"]["tmp_name"]) > 0) {
 	uploadCoverImage($_FILES["coverPhoto"]);
 }else{
-	alert("no cover photo");
 	$coverPhotoFileName = NULL;
 }
 
@@ -90,11 +89,12 @@ function uploadMultipleImage($sqlConnection, $galleryFolder, $imgFiles, $actId) 
 			$strSQL = "UPDATE activity SET ";
 			$strSQL .="act_topic = '".$_POST["topic"]."' ";
 			$strSQL .=",act_details = '".$_POST["editor1"]."' ";
-
-			$strSQL .=",act_imagetitle = '/Slideimages/".$_FILES["coverPhoto"]["name"]."' ";
+			if(!empty($_FILES["coverPhoto"]["tmp_name"])){
+				$strSQL .=",act_imagetitle = '/Slideimages/".$_FILES["coverPhoto"]["name"]."' ";
+			}
 			$strSQL .=",act_imagedir = '/images/".$_POST["topic-id"]."' ";
-			$strSQL .=",act_vdopath = NULL ";
-			$strSQL .=",act_filepath = NULL ";
+			$strSQL .=",act_vdopath = '".$_POST["vdo_path"]."' ";
+			$strSQL .=",act_filepath = '".$_POST["file_path"]."' ";
 			$strSQL .=",act_enable = '".$_POST["act_status"]."' ";
 
 			$strSQL .="WHERE act_id like '%".$_POST["topic-id"]."%'";

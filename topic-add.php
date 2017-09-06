@@ -2,11 +2,21 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<script src="ckeditor/ckeditor.js"></script>
+	<script src="/doca/ckeditor/ckeditor.js"></script>
+	<script src="/doca/ckeditor/ckfinder.js"></script>
 	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<script src="bootstrap/js/bootstrap.js"></script>
+	<script src="/doca/bootstrap/js/bootstrap.js"></script>
+	<link href="https://fonts.googleapis.com/css?family=Taviraj" rel="stylesheet">
 	<title>เพิ่มข่าวใหม่</title>
+
+	<style>
+	.style16 {font-size: 16pt; font-weight: bold; font-family: "TH SarabunPSK", sans-serif; }
+	.style18 {font-size: 18pt; font-weight: bold; font-family: "TH SarabunPSK", sans-serif; }
+	.style22 {font-size: 22pt; font-weight: bold; font-family: "TH SarabunPSK", sans-serif; }
+	label {font-family: 'Taviraj', serif;}
+	body {font-family: 'Taviraj', serif;}
+	</style>
 </head>
 
 <script>
@@ -29,19 +39,25 @@ function preview_cover() {
 <body>
 
 	<div class="container">
+		<p><span class="style22">เพิ่มข่าวใหม่</span></p>
 		<form action="" method="post" enctype="multipart/form-data">
 
 			<div class="form-group">
-				<label for="title">หัวข้อข่าว</label>
+				<label for="title" class="tavirajFont">หัวข้อข่าว</label>
 				<input type="text" class="form-control" name="topic" id="topic" placeholder="ระบุชื่อเรื่อง" required>
 			</div>
 
 			<div class="form-group">
-				<label for="editor1">เนื้อหาข่าว</label>
+				<label for="editor1" class="tavirajFont">เนื้อหาข่าว</label>
 				<textarea class="form-control" placeholder="ระบุเนื้อหา"  id="editor1" name="editor1" required></textarea>
 				<script>
-				  var editor = CKEDITOR.replace( 'editor1' );
-				  CKFinder.setupCKEditor( editor );
+				var editor = CKEDITOR.replace( 'editor1', {
+					filebrowserBrowseUrl: '/doca/ckfinder/ckfinder.html',
+					filebrowserImageBrowseUrl: '/doca/ckfinder/ckfinder.html?type=Images',
+					filebrowserUploadUrl: '/doca/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files',
+					filebrowserImageUploadUrl: '/doca/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images'
+				});
+				CKFinder.setupCKEditor( editor );
 				</script>
 			</div>
 
@@ -55,6 +71,16 @@ function preview_cover() {
 				<label for="galleryImage">ภาพข่าวเพิ่มเติม</label>
 				<input type="file" id="galleryImage" name="galleryImage[]" onchange="preview_gallery();" multiple/>
 				<div id="imagePreview" class="container"></div>
+			</div>
+
+			<div class="form-group">
+				<label for="file_path">URL ไฟล์</label>
+				<input type="text" class="form-control" name="file_path" id="file_path" placeholder="ระบุ URL ไฟล์" >
+			</div>
+
+			<div class="form-group">
+				<label for="vdo_path">URL วีดิโอ</label>
+				<input type="text" class="form-control" name="vdo_path" id="vdo_path" placeholder="ระบุ URL วีดิโอ" >
 			</div>
 
 			<div class="form-group">
@@ -82,9 +108,8 @@ if(isset($_POST["update"])) {
 	$lastestActivityId = getLastestActivityId($conn);
 
 	if(filesize($_FILES["coverPhoto"]["tmp_name"]) > 0) {
-			uploadCoverImage($_FILES["coverPhoto"]);
+		uploadCoverImage($_FILES["coverPhoto"]);
 	}else{
-		alert("no cover photo");
 		$coverPhotoFileName = NULL;
 	}
 
@@ -92,10 +117,10 @@ if(isset($_POST["update"])) {
 	$message = $_POST["editor1"] ?? '';
 
 	if(empty($_FILES["galleryImage"]["tmp_name"][0])){
-		addNews($conn, $lastestActivityId, $_POST);
+		addNews($conn, $lastestActivityId);
 	}else{
 		$galleryFolder = "images/".$lastestActivityId."/";
-		addNews($conn, $lastestActivityId, $_POST);
+		addNews($conn, $lastestActivityId);
 		uploadMultipleImage($conn, $galleryFolder, $_FILES["galleryImage"], $lastestActivityId);
 	}
 
@@ -172,19 +197,23 @@ function checkImageFormat($file) {
 	}
 }
 
-function addNews($sqlConnection, $act_id, $postdata){
+function addNews($sqlConnection, $act_id){
 	$insertNewsQuery = "INSERT INTO activity";
 	$insertNewsQuery .="(act_topic,act_details,act_imagetitle,act_imagedir,act_vdopath,act_filepath,act_enable)";
 	$insertNewsQuery .="VALUES";
-	$insertNewsQuery .="('".$_POST["topic"]."',
-	'".$postdata["editor1"]."',
-	'/Slideimages/".$_FILES["coverPhoto"]["name"]."',
-	'/images/".$act_id."',
-	'',
-	'',
-	'".$postdata["status"]."')";
+	$insertNewsQuery .="('".$_POST["topic"]."',";
+	$insertNewsQuery .="'".$_POST["editor1"]."',";
+	if(!empty($_FILES["coverPhoto"]["tmp_name"])){
+		$insertNewsQuery .="'/Slideimages/".$_FILES["coverPhoto"]["name"]."',";
+		$insertNewsQuery .="'/images/".$act_id."',";
+	}else{
+		$insertNewsQuery .="NULL, NULL,";
+	}
+	$insertNewsQuery .="'".$_POST["vdo_path"]."',";
+	$insertNewsQuery .="'".$_POST["file_path"]."',";
+	$insertNewsQuery .="'".$_POST["status"]."')";
 	if (!$sqlConnection->query($insertNewsQuery) === TRUE) {
-		alert("ผิดพลาด: " . $insertNews . "<br>" . $conn->error);
+		alert("ผิดพลาด: " . $insertNewsQuery . "<br>" . $sqlConnection->error);
 		exit();
 	}
 }
