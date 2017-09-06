@@ -15,7 +15,7 @@
 namespace CKSource\CKFinder\Backend\Adapter;
 
 use League\Flysystem\Azure\AzureAdapter as AzureAdapterBase;
-use WindowsAzure\Blob\Models\ListBlobsOptions;
+use MicrosoftAzure\Storage\Blob\Models\ListBlobsOptions;
 
 class Azure extends AzureAdapterBase implements EmulateRenameDirectoryInterface
 {
@@ -34,11 +34,11 @@ class Azure extends AzureAdapterBase implements EmulateRenameDirectoryInterface
         $options = new ListBlobsOptions();
         $options->setPrefix($sourcePath);
 
-        /** @var \WindowsAzure\Blob\Models\ListBlobsResult $listResults */
+        /** @var \MicrosoftAzure\Storage\Blob\Models\\ListBlobsResult $listResults */
         $listResults = $this->client->listBlobs($this->container, $options);
 
         foreach ($listResults->getBlobs() as $blob) {
-            /** @var \WindowsAzure\Blob\Models\Blob $blob */
+            /** @var \MicrosoftAzure\Storage\Blob\Models\Blob $blob */
             $this->client->copyBlob(
                 $this->container,
                 $this->replacePath($blob->getName(), $path, $newPath),
@@ -67,5 +67,17 @@ class Azure extends AzureAdapterBase implements EmulateRenameDirectoryInterface
         $path = trim($path, '/') . '/';
 
         return $this->applyPathPrefix($newPath . substr($objectPath, strlen($path)));
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function has($path)
+    {
+        try {
+            return parent::has($path);
+        } catch (\Exception $e) {
+            return false;
+        }
     }
 }

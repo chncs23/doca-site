@@ -66,7 +66,7 @@ $config['images'] = array(
 $config['backends'][] = array(
     'name'         => 'default',
     'adapter'      => 'local',
-    'baseUrl'      => '/ckfinder/userfiles/',
+    'baseUrl'      => '/doca',
 //  'root'         => '', // Can be used to explicitly set the CKFinder user files directory.
     'chmodFiles'   => 0777,
     'chmodFolders' => 0755,
@@ -168,6 +168,11 @@ $config['sessionWriteClose'] = true;
 // http://docs.cksource.com/ckfinder3-php/configuration.html#configuration_options_csrfProtection
 
 $config['csrfProtection'] = true;
+
+/*===================================== Headers =======================================*/
+// http://docs.cksource.com/ckfinder3-php/configuration.html#configuration_options_headers
+
+$config['headers'] = array();
 
 /*============================== End of Configuration =================================*/
 

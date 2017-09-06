@@ -112,7 +112,10 @@ class UploadedFile extends File
      */
     public function sanitizeFilename()
     {
-        $this->fileName = static::secureName($this->fileName, $this->config->get('disallowUnsafeCharacters'));
+        $this->fileName = static::secureName($this->fileName,
+            $this->config->get('disallowUnsafeCharacters'),
+            $this->config->get('forceAscii')
+        );
 
         $resourceType = $this->workingFolder->getResourceType();
 

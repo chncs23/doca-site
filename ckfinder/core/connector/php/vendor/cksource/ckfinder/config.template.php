@@ -169,6 +169,11 @@ $config['sessionWriteClose'] = true;
 
 $config['csrfProtection'] = true;
 
+/*===================================== Headers =======================================*/
+// http://docs.cksource.com/ckfinder3-php/configuration.html#configuration_options_headers
+
+$config['headers'] = array();
+
 /*============================== End of Configuration =================================*/
 
 // Config must be returned - do not change it.
