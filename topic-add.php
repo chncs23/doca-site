@@ -2,11 +2,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<script src="/doca/ckeditor/ckeditor.js"></script>
-	<script src="/doca/ckeditor/ckfinder.js"></script>
+	<script src="ckeditor/ckeditor.js"></script>
+	<script src="ckeditor/ckfinder.js"></script>
 	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<script src="/doca/bootstrap/js/bootstrap.js"></script>
+	<script src="bootstrap/js/bootstrap.js"></script>
 	<link href="https://fonts.googleapis.com/css?family=Taviraj" rel="stylesheet">
 	<title>เพิ่มข่าวใหม่</title>
 
@@ -52,10 +52,10 @@ function preview_cover() {
 				<textarea class="form-control" placeholder="ระบุเนื้อหา"  id="editor1" name="editor1" required></textarea>
 				<script>
 				var editor = CKEDITOR.replace( 'editor1', {
-					filebrowserBrowseUrl: '/doca/ckfinder/ckfinder.html',
-					filebrowserImageBrowseUrl: '/doca/ckfinder/ckfinder.html?type=Images',
-					filebrowserUploadUrl: '/doca/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files',
-					filebrowserImageUploadUrl: '/doca/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images'
+					filebrowserBrowseUrl: 'ckfinder/ckfinder.html',
+					filebrowserImageBrowseUrl: 'ckfinder/ckfinder.html?type=Images',
+					filebrowserUploadUrl: 'ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files',
+					filebrowserImageUploadUrl: 'ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images'
 				});
 				CKFinder.setupCKEditor( editor );
 				</script>
@@ -177,7 +177,7 @@ function uploadMultipleImage($sqlConnection, $galleryFolder, $imgFiles, $newsId)
 
 		$fileName = basename($imgFiles["name"][$i]);
 		$insertGalleryPath = "INSERT INTO image (act_id, image_path)
-		VALUES ('$newsId', '/$galleryFolder$fileName')";
+		VALUES ('$newsId', '$galleryFolder$fileName')";
 
 		if (!$sqlConnection->query($insertGalleryPath) === TRUE) {
 			echo "Error: " . $insertGalleryPath . "<br>" . $conn->error;
@@ -204,8 +204,8 @@ function addNews($sqlConnection, $act_id){
 	$insertNewsQuery .="('".$_POST["topic"]."',";
 	$insertNewsQuery .="'".$_POST["editor1"]."',";
 	if(!empty($_FILES["coverPhoto"]["tmp_name"])){
-		$insertNewsQuery .="'/Slideimages/".$_FILES["coverPhoto"]["name"]."',";
-		$insertNewsQuery .="'/images/".$act_id."',";
+		$insertNewsQuery .="'Slideimages/".$_FILES["coverPhoto"]["name"]."',";
+		$insertNewsQuery .="'images/".$act_id."',";
 	}else{
 		$insertNewsQuery .="NULL, NULL,";
 	}

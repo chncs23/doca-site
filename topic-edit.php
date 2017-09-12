@@ -23,10 +23,10 @@ $act_status  = $Rows['act_enable'];
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<script src="/doca/ckeditor/ckeditor.js"></script>
-	<script src="/doca/ckfinder/ckfinder.js"></script>
-	<script src="/doca/bootstrap/js/bootstrap.js"></script>
-	<link rel="stylesheet" type="text/css" href="/doca/bootstrap/css/bootstrap.css">
+	<script src="ckeditor/ckeditor.js"></script>
+	<script src="ckfinder/ckfinder.js"></script>
+	<script src="bootstrap/js/bootstrap.js"></script>
+	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
 	<link href="https://fonts.googleapis.com/css?family=Taviraj" rel="stylesheet">
 
 	<style>
@@ -74,10 +74,10 @@ function preview_cover() {
 				<textarea class="form-control" placeholder="ระบุเนื้อหา" id="editor1" name="editor1" required><?php echo $act_details;?></textarea>
 				<script>
 				var editor = CKEDITOR.replace( 'editor1', {
-					filebrowserBrowseUrl: '/doca/ckfinder/ckfinder.html',
-					filebrowserImageBrowseUrl: '/doca/ckfinder/ckfinder.html?type=Images',
-					filebrowserUploadUrl: '/doca/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files',
-					filebrowserImageUploadUrl: '/doca/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images'
+					filebrowserBrowseUrl: 'ckfinder/ckfinder.html',
+					filebrowserImageBrowseUrl: 'ckfinder/ckfinder.html?type=Images',
+					filebrowserUploadUrl: 'ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files',
+					filebrowserImageUploadUrl: 'ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images'
 				});
 				CKFinder.setupCKEditor( editor );
 				</script>
@@ -87,7 +87,7 @@ function preview_cover() {
 				<div class="form-group">
 					<label for="coverPhoto">ภาพหน้าปก</label>
 					<div class="container">
-						<div class="col-md-2"> <img src='/doca/<?php echo $act_imagetitle; ?>' width="304" height="236" class="img-thumbnail"> </div>
+						<div class="col-md-2"> <img src='<?php echo $act_imagetitle; ?>' width="304" height="236" class="img-thumbnail"> </div>
 					</div>
 				</div>
 			<?php } ?>
@@ -109,7 +109,7 @@ function preview_cover() {
 						<?php
 						while($objImgResult = mysqli_fetch_assoc($objImgQuery)) {
 							?>
-							<div class="col-md-2"> <img src='/doca/<?php echo $objImgResult['image_path']; ?>' width="304" height="236" class="img-thumbnail"> </div>
+							<div class="col-md-2"> <img src='<?php echo $objImgResult['image_path']; ?>' width="304" height="236" class="img-thumbnail"> </div>
 							<?php
 						}
 						?>

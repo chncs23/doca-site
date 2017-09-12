@@ -9,74 +9,15 @@
 	<link rel="stylesheet" type="text/css" href="css/dropmenu.css" />
 	<script type="text/javascript" src="js/jquery-latest.js"></script>
 	<script type="text/javascript" src="js/jquery.tablesorter.js"></script>
-	<link rel="stylesheet" type="text/css" href="/doca/bootstrap/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
 	<link href="themes/blue/style.css" rel="stylesheet" type="text/css">
 	<link href="https://fonts.googleapis.com/css?family=Taviraj" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="css/backoffice-style.css" />
 	<script type="text/javascript">
 	$(document).ready(function() {
 		$("#myTable").tablesorter();
 	});
 	</script>
-	<style>
-	ul.lof-main-wapper li {
-		position:relative;
-	}
-	.style18 {font-size: 16pt; font-weight: ; font-family: "TH SarabunPSK", sans-serif; }
-	.style22 {font-size: 24pt; font-weight: bold; font-family: "TH SarabunPSK", sans-serif; }
-	body {
-		font-size: 10pt; font-family: 'Taviraj', serif;
-		background-image: url(../images/BG7.jpg);
-		background-repeat: repeat;
-		margin-left: 0px;
-		margin-top: 0px;
-		margin-right: 0px;
-		margin-bottom: 0px;
-	}
-
-	span {font-size: 10pt; font-family: 'Taviraj', serif;}
-
-	</style>
-	<!-- ------------------------------------------------------test Menu-->
-	<style type="text/css">
-	/* เมนูปกติ */
-	.css_menu{
-		position:relative;
-		display:block;
-		float:left;
-		width:100%;
-		height:25px;
-		background-color:#333;
-		color:#FFF;
-		text-align:center;
-		text-decoration:none;
-		line-height:25px;
-		margin-right:2px;
-	}
-	/*  เมนูเมื่อเมาส์ over*/
-	.css_menu:hover{
-		position:relative;
-		display:block;
-		float:left;
-		width:100%;
-		height:25px;
-		background-color:#CCC;
-		color:#000;
-	}
-	/*  เมนูเมื่อ active*/
-	.css_menu_active{
-		position:relative;
-		display:block;
-		float:left;
-		width:100%;
-		height:25px;
-		background-color:#CCC;
-		color:#000;
-		text-align:center;
-		text-decoration: underline;
-		line-height:25px;
-		margin-right:2px;
-	}
-	</style>
 
 	<title>แก้ไขกิจกรรม</title>
 </head>
@@ -92,7 +33,7 @@
 	<table width="1120" border="0" align="center" cellpadding="0" cellspacing="10">
 		<tr>
 			<td width="250" valign="top" background="images/baseBG.png"><?php require_once("scriptmenueditor.php"); ?></td>
-			<td align="left" valign="top" background="images/baseBG.png"><h2>หน้าแก้ไขข่าวกิจกรรม</h2>
+			<td align="left" valign="top" background="images/baseBG.png"><h2>แก้ไขข่าวกิจกรรม</h2>
 				<div align="right">
 					<button
 					type="button"
@@ -101,7 +42,6 @@
 					title="เพิ่มข่าวกิจกรรม"><span class="glyphicon glyphicon-plus"></span> เพิ่มข่าวกิจกรรม</button>
 				</div>
 			</div>
-
 
 			<?php
 			function alert($msg) {
@@ -121,8 +61,6 @@
 			if (mysqli_num_rows($objQuery) == 0) {
 				alert("ไม่มีอะไรเลยยยยย");
 			}else{
-				error_reporting(E_ALL);
-
 				$tablehead = <<<HTML
 				<table id="myTable" class="table table-bordered tablesorter ">
 					<thead>
