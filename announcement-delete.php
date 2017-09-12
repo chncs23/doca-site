@@ -8,10 +8,10 @@
   <tr height="50">
     <th scope="col">
     <?php
-		require_once("callconnection.php");	
+		require_once("callconnectionimproved.php");
 		$strSQL = "DELETE FROM announcement ";
 		$strSQL .="WHERE ann_id = '".$_GET["Sendid"]."' ";
-		$objQuery = mysql_query($strSQL);
+		$objQuery = mysqli_query($conn, $strSQL);
 		if($objQuery)
 		{
 			echo "Record Deleted.";
