@@ -15,6 +15,7 @@
 		 {
 			 alert("แก้ไขกิจกรรมสำเร็จ !!!");
 			 echo "<script>self.close();</script>";
+       $conn->close();
 			 exit;
 		 }
 	 else

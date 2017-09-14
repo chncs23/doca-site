@@ -7,15 +7,15 @@
 <link rel="stylesheet" type="text/css" href="css/layout.css" />
 <link rel="stylesheet" type="text/css" href="css/style2.css" />
 <link rel="stylesheet" type="text/css" href="css/dropmenu.css" />
-      
-</script>  
-<!-- Script Silde Image-->   
+
+</script>
+<!-- Script Silde Image-->
 <script language="javascript" type="text/javascript" src="js/jquery.js"></script>
 <script language="javascript" type="text/javascript" src="js/jquery.easing.js"></script>
 <script language="javascript" type="text/javascript" src="js/script.js"></script>
-<style>	
+<style>
 	ul.lof-main-wapper li {
-		position:relative;	
+		position:relative;
 	}
 	.style18 {font-size: 16pt; font-weight: ; font-family: "TH SarabunPSK", sans-serif; }
 .style22 {font-size: 24pt; font-weight: bold; font-family: "TH SarabunPSK", sans-serif; }
@@ -43,49 +43,49 @@ body {
 	});
 	});
 	</script>
-  <!-- ------------------------------------------------------test Menu--> 
-<style type="text/css">  
-/* เมนูปกติ */  
-.css_menu{  
-    position:relative;  
-    display:block;  
-    float:left;  
-    width:100%;  
-    height:25px;  
-    background-color:#333;  
-    color:#FFF;   
-    text-align:center;  
-    text-decoration:none;  
-    line-height:25px;  
-    margin-right:2px;  
-}  
-/*  เมนูเมื่อเมาส์ over*/  
-.css_menu:hover{  
-    position:relative;  
-    display:block;  
-    float:left;  
-    width:100%;  
-    height:25px;  
-    background-color:#CCC;  
-    color:#000;   
-}  
-/*  เมนูเมื่อ active*/  
-.css_menu_active{  
-    position:relative;  
-    display:block;  
-    float:left;  
-    width:100%;  
-    height:25px;  
-    background-color:#CCC;  
-    color:#000;   
-    text-align:center;  
-    text-decoration: underline;  
-    line-height:25px;  
-    margin-right:2px;  
-} 
+  <!-- ------------------------------------------------------test Menu-->
+<style type="text/css">
+/* เมนูปกติ */
+.css_menu{
+    position:relative;
+    display:block;
+    float:left;
+    width:100%;
+    height:25px;
+    background-color:#333;
+    color:#FFF;
+    text-align:center;
+    text-decoration:none;
+    line-height:25px;
+    margin-right:2px;
+}
+/*  เมนูเมื่อเมาส์ over*/
+.css_menu:hover{
+    position:relative;
+    display:block;
+    float:left;
+    width:100%;
+    height:25px;
+    background-color:#CCC;
+    color:#000;
+}
+/*  เมนูเมื่อ active*/
+.css_menu_active{
+    position:relative;
+    display:block;
+    float:left;
+    width:100%;
+    height:25px;
+    background-color:#CCC;
+    color:#000;
+    text-align:center;
+    text-decoration: underline;
+    line-height:25px;
+    margin-right:2px;
+}
 </style>
 
-<title>..DOCA WebManagement..</title> 
+<title>..DOCA WebManagement..</title>
 </head>
 <body topmargin="">
 <div id="fb-root"></div>
@@ -101,7 +101,7 @@ body {
 <table width="1120" border="0" align="center" cellpadding="0" cellspacing="0">
   <tr valign="top">
     <td colspan="4">
-   <?php require_once("scriptmenu.php");?>    
+   <?php require_once("scriptmenu.php");?>
  <!-- End Menu ----------------------------------->
     </td>
 </table>
@@ -109,10 +109,10 @@ body {
 <table width="1120" border="0" align="center" cellpadding="0" cellspacing="10">
 <tr>
   <td width="250" valign="top" background="images/baseBG.png">
-<?php require_once("scriptmenueditor.php"); ?>  
+<?php require_once("scriptmenueditor.php"); ?>
     </td>
   <td align="left" valign="top" background="images/baseBG.png"><p><span class="style18">Doca Backend ยินดีต้อนรับ</span></p>
-    <p><span class="style18">เลือก เมนู เพื่อบริหารจัดการข้อมูล</span></p></td>
+    <p><span class="style18">เลือกเมนูด้านข้างเพื่อจัดการข้อมูล</span></p></td>
   </tr>
 </table>
 

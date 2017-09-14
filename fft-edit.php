@@ -1,102 +1,55 @@
 <?php
 
-	require_once("callconnection.php");	
+	require_once("callconnectionimproved.php");
 	$receiveid = $_GET['Sendid'];
-	
+
 		$strSQL = "SELECT * FROM fft WHERE fft_id like '%".$receiveid."%'";
-		$objQuery = mysql_query($strSQL) or die ("Error Query [".$strSQL."]");
-  
-	$Rows = mysql_fetch_array($objQuery);	
-		  
+		$objQuery = mysqli_query($conn, $strSQL) or die ("Error Query [".$strSQL."]");
+
+	$Rows = mysqli_fetch_array($objQuery);
+
 		$FFT_id 	 = $Rows['fft_id'];
 		$FFT_details = $Rows['fft_details'];
 		$FFT_status  = $Rows['fft_status'];
-	
+
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<style>	
-.style16 {font-size: 16pt; font-weight: bold; font-family: "TH SarabunPSK", sans-serif; }
-.style18 {font-size: 18pt; font-weight: bold; font-family: "TH SarabunPSK", sans-serif; }
-.style22 {font-size: 22pt; font-weight: bold; font-family: "TH SarabunPSK", sans-serif; }
-body {
-	background-image: url(..images/BG7.jpg);
-	background-repeat: repeat;
-	margin-left: 0px;
-	margin-top: 0px;
-	margin-right: 0px;
-	margin-bottom: 0px;
-}
-	
-
-</style>
-
-<title>Untitled Document</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="ckeditor/ckeditor.js"></script>
+	<script src="ckfinder/ckfinder.js"></script>
+	<script src="bootstrap/js/bootstrap.js"></script>
+	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
+	<link href="https://fonts.googleapis.com/css?family=Taviraj" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="css/backoffice-form-style.css" />
+	<title>แก้ไขข้อความด่วน</title>
 </head>
-<table align="center" cellpadding="0" cellspacing="0" background="../images/BG8.png">
-    <tr>
-        <td width="100%" align="center"><p><span class="style22">ข่าวด่วน</span></p>
-          <form action="" method="post">
-            <table width="100%" border="0" cellspacing="10" cellpadding="0" >  
-          <tr>
-            <td width="150" align="right"><span class="style18">ข้อความ</span></td>
-            <td width="400"><textarea name="fft_details" cols="50" id="fft_details"><?php echo $FFT_details;?></textarea></td>
-          </tr>
-          <tr>
-            <td width="150" align="right"><span class="style18">สถานะ</span></td> 
-            <td width="400">
-                             
-            <p>
-            <select name="fft_status">
-                <option value="n">Disabled</option>
-                <option value="y">Enabled</option>
-            </select>
-            </p>
-          	</td>
-          </tr>
-          
-          <br />
-          <tr>
-            <td colspan="2" align="center" >
-        	<input type="submit" name="submit" style="width:100px; height:50px;" value="Update ข้อมูล">
-            <input type="submit" name="cancelvalue" style="width:150px; height:50px;" class="style18" value="ปิด" onClick="self.close()">
-            </td>
-            </tr>
-        </table>
-    </form>
 
-   <?
-		require_once("callconnection.php");
-		
-		if($_POST)
-		{
-			$strSQL = "UPDATE fft SET ";
-			$strSQL .="fft_details = '".$_POST["fft_details"]."' ";
-			$strSQL .=",fft_status = '".$_POST["fft_status"]."' ";
-			$strSQL .="WHERE fft_id like '%".$receiveid."%'";
-			$objQuery = mysql_query($strSQL);
-			if($objQuery)
-				{ // Message Box.
-				  ?>
-	 				 <script language="javascript">alert("..แก้ไขเรียบร้อย!.."); location.href="?" ;</script>
-				  <?
-				  exit;
-	 			} 
-			//{
-				//echo "ส่งข้อความสำเร็จ";	
-			//}
-			else
-			{
-				echo "Error Save ";	
-			}	
-		}
-		?>
-      </td>
-    </tr>  
-    </table>
 <body>
+	<div class="container">
+		<p class="style22">แก้ไขข่าวประชาสัมพันธ์</p>
+		<form action="update-fft.php" method="post" enctype="multipart/form-data">
+
+			<input type="hidden" name="fft_id" value=<?php echo $receiveid;?>>
+
+			<div class="form-group">
+				<label for="fft_details" class="tavirajFont">ข้อความ</label>
+				<input type="text" class="form-control" name="fft_details" id="fft_details" placeholder="ระบุข้อความ" value=<?php echo $FFT_details;?> required>
+			</div>
+
+			<div class="form-group">
+				<label for="fft_status">สถานะ</label>
+				<select name="fft_status">
+					<option value="n" <?php if ($FFT_status == 'n') echo 'selected="selected"'?>>ไม่แสดง</option>
+					<option value="y" <?php if ($FFT_status == 'y') echo 'selected="selected"'?>>แสดง</option>
+				</select></td>
+			</div>
+			<input type="submit" name="submit"value="แก้ไขข้อมูล">
+			<input type="submit" value="ปิด" onClick="self.close()">
+		</form>
+	</div>
 </body>
 </html>

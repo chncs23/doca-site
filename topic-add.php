@@ -8,15 +8,8 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="bootstrap/js/bootstrap.js"></script>
 	<link href="https://fonts.googleapis.com/css?family=Taviraj" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="css/backoffice-form-style.css" />
 	<title>เพิ่มข่าวใหม่</title>
-
-	<style>
-	.style16 {font-size: 16pt; font-weight: bold; font-family: "TH SarabunPSK", sans-serif; }
-	.style18 {font-size: 18pt; font-weight: bold; font-family: "TH SarabunPSK", sans-serif; }
-	.style22 {font-size: 22pt; font-weight: bold; font-family: "TH SarabunPSK", sans-serif; }
-	label {font-family: 'Taviraj', serif;}
-	body {font-family: 'Taviraj', serif;}
-	</style>
 </head>
 
 <script>

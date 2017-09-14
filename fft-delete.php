@@ -8,13 +8,14 @@
   <tr height="50">
     <th scope="col">
     <?php
-		require_once("callconnection.php");	
+		require_once("callconnectionimproved.php");
 		$strSQL = "DELETE FROM fft ";
 		$strSQL .="WHERE fft_id = '".$_GET["Sendid"]."' ";
-		$objQuery = mysql_query($strSQL);
+		$objQuery = mysqli_query($conn, $strSQL);
 		if($objQuery)
 		{
 			echo "Record Deleted.";
+      $conn->close();
 		}
 		else
 		{

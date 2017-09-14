@@ -26,34 +26,13 @@ $ann_status  	= $Rows['ann_status'];
 	<script src="bootstrap/js/bootstrap.js"></script>
 	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
 	<link href="https://fonts.googleapis.com/css?family=Taviraj" rel="stylesheet">
-	<style>
-	.style16 {font-size: 16pt; font-weight: bold; font-family: "TH SarabunPSK", sans-serif; }
-	.style18 {font-size: 18pt; font-weight: bold; font-family: "TH SarabunPSK", sans-serif; }
-	.style22 {font-size: 22pt; font-weight: bold; font-family: "TH SarabunPSK", sans-serif; }
-	body {
-		font-family: 'Taviraj', serif;
-		background-image: url(images/BG7.jpg);
-		background-repeat: repeat;
-		margin-left: 0px;
-		margin-top: 0px;
-		margin-right: 0px;
-		margin-bottom: 0px;
-	}
-
-	.container {
-		background-color: white;
-		padding-top: 20px;
-		padding-bottom: 20px;
-	}
-
-	</style>
-
+	<link rel="stylesheet" type="text/css" href="css/backoffice-form-style.css" />
 	<title>แก้ไขข่าวประชาสัมพันธ์</title>
 </head>
 
 <body>
 	<div class="container">
-		<p><span class="style22">แก้ไขข่าวประชาสัมพันธ์</span></p>
+		<p class="style22">แก้ไขข่าวประชาสัมพันธ์</p>
 		<form action="update-announcement.php" method="post" enctype="multipart/form-data">
 
 			<input type="hidden" name="ann_id" value=<?php echo $receiveid;?>>

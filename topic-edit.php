@@ -28,15 +28,7 @@ $act_status  = $Rows['act_enable'];
 	<script src="bootstrap/js/bootstrap.js"></script>
 	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
 	<link href="https://fonts.googleapis.com/css?family=Taviraj" rel="stylesheet">
-
-	<style>
-	.style16 {font-size: 16pt; font-weight: bold; font-family: "TH SarabunPSK", sans-serif; }
-	.style18 {font-size: 18pt; font-weight: bold; font-family: "TH SarabunPSK", sans-serif; }
-	.style22 {font-size: 22pt; font-weight: bold; font-family: "TH SarabunPSK", sans-serif; }
-	label {font-family: 'Taviraj', serif;}
-	body {font-family: 'Taviraj', serif;}
-	</style>
-
+	<link rel="stylesheet" type="text/css" href="css/backoffice-form-style.css" />
 	<title></title>
 </head>
 
@@ -60,7 +52,7 @@ function preview_cover() {
 <body>
 	<div class="container">
 		<p><span class="style22">แก้ไขข่าวกิจกรรม</span></p>
-		<form action="update_topic.php" method="post" enctype="multipart/form-data">
+		<form action="update-topic.php" method="post" enctype="multipart/form-data">
 
 			<input type="hidden" name="topic-id" value=<?php echo $receiveid;?>>
 
@@ -86,7 +78,7 @@ function preview_cover() {
 			<?php if($act_imagetitle != '') {?>
 				<div class="form-group">
 					<label for="coverPhoto">ภาพหน้าปก</label>
-					<div class="container">
+					<div class="row">
 						<div class="col-md-2"> <img src='<?php echo $act_imagetitle; ?>' width="304" height="236" class="img-thumbnail"> </div>
 					</div>
 				</div>
@@ -95,7 +87,7 @@ function preview_cover() {
 			<div class="form-group">
 				<label for="coverPhoto">เปลี่ยนภาพหน้าปก</label>
 				<input type="file" name="coverPhoto" id="coverPhoto" onchange="preview_cover();">
-				<div id="coverPreview" class="container"></div>
+				<div id="coverPreview" class="row"></div>
 			</div>
 
 
@@ -105,7 +97,7 @@ function preview_cover() {
 			if(mysqli_num_rows ($objImgQuery) > 0) { ?>
 				<div class="form-group">
 					<label for="galleryImage">ภาพข่าวเพิ่มเติม</label>
-					<div class="container">
+					<div class="row">
 						<?php
 						while($objImgResult = mysqli_fetch_assoc($objImgQuery)) {
 							?>
@@ -120,7 +112,7 @@ function preview_cover() {
 			<div class="form-group">
 				<label for="galleryImage">เปลี่ยนภาพข่าวเพิ่มเติม</label>
 				<input type="file" id="galleryImage" name="galleryImage[]" onchange="preview_gallery();" multiple/>
-				<div id="imagePreview" class="container"></div>
+				<div id="imagePreview" class="row"></div>
 			</div>
 
 			<div class="form-group">
@@ -136,8 +128,8 @@ function preview_cover() {
 			<div class="form-group">
 				<label for="showAsCover">แสดงเป็นภาพสไลด์</label>
 				<select name="act_status">
-					<option value="n" <?php if ($act_status == 'n') echo ' selected="selected"'; ?>>ไม่ใช่</option>
-					<option value="y" <?php if ($act_status == 'y') echo ' selected="selected"'; ?>>ใช่</option>
+					<option value="n" <?php if ($act_status == 'n') echo 'selected="selected"'; ?>>ไม่ใช่</option>
+					<option value="y" <?php if ($act_status == 'y') echo 'selected="selected"'; ?>>ใช่</option>
 				</select></td>
 
 			</div>

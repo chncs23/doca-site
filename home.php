@@ -132,8 +132,8 @@ body {
 
 				if($total>0)
 				{
-				$count;
-				while ($objResult=mysql_fetch_array($objQuery))
+				$count=0;
+				while ($objResult=mysqli_fetch_array($objQuery))
 					{
 					echo $objResult["fft_details"];
 					}
@@ -359,7 +359,7 @@ require_once("callconnectionimproved.php");
 				if($total>0)
 				{
 				$count;
-				while ($objResult=mysql_fetch_array($objQuery))
+				while ($objResult=mysqli_fetch_array($objQuery))
 					{
 
 					//echo '<li>';
