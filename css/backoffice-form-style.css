@@ -1,15 +1,18 @@
 <style>
 
+.style18 {font-size: 16pt; font-weight: ; font-family: "TH SarabunPSK", sans-serif; }
 .style22 {font-size: 22pt; font-weight: bold; font-family: "TH SarabunPSK", sans-serif; }
 
 body {
   font-size: 10pt; font-family: 'Taviraj', serif;
-  background-image: url(images/BG7.jpg);
+  background-image: url("../images/blue-bg.jpg");
   background-repeat: repeat;
-  margin-left: 0px;
-  margin-top: 0px;
-  margin-right: 0px;
-  margin-bottom: 0px;
+}
+
+.container {
+  background-color: white;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 </style>

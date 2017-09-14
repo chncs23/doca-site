@@ -4,10 +4,12 @@ ul.lof-main-wapper li {
   position:relative;
 }
 .style18 {font-size: 16pt; font-weight: ; font-family: "TH SarabunPSK", sans-serif; }
-.style22 {font-size: 24pt; font-weight: bold; font-family: "TH SarabunPSK", sans-serif; }
+.style22 {font-size: 22pt; font-weight: bold; font-family: "TH SarabunPSK", sans-serif; }
 body {
   font-size: 10pt; font-family: 'Taviraj', serif;
-  background-image: url(../images/BG7.jpg);
+  background-image: url(../images/blue-bg.jpg);
+  no-repeat;
+  background-attachment:fixed;
   background-repeat: repeat;
   margin-left: 0px;
   margin-top: 0px;
