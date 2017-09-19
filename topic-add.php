@@ -57,13 +57,13 @@ function preview_cover() {
 			<div class="form-group">
 				<label for="coverPhoto">ภาพหน้าปก</label>
 				<input type="file" name="coverPhoto" id="coverPhoto" onchange="preview_cover();">
-				<div id="coverPreview" class="container"></div>
+				<div id="coverPreview" class="row"></div>
 			</div>
 
 			<div class="form-group">
 				<label for="galleryImage">ภาพข่าวเพิ่มเติม</label>
 				<input type="file" id="galleryImage" name="galleryImage[]" onchange="preview_gallery();" multiple/>
-				<div id="imagePreview" class="container"></div>
+				<div id="imagePreview" class="row"></div>
 			</div>
 
 			<div class="form-group">

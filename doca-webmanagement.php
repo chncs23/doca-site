@@ -1,91 +1,25 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link rel="stylesheet" type="text/css" href="css/layout.css" />
-<link rel="stylesheet" type="text/css" href="css/style2.css" />
-<link rel="stylesheet" type="text/css" href="css/dropmenu.css" />
+  <link rel="stylesheet" type="text/css" href="css/layout.css" />
+  <link rel="stylesheet" type="text/css" href="css/style2.css" />
+  <link rel="stylesheet" type="text/css" href="css/dropmenu.css" />
+	<script type="text/javascript" src="js/jquery-latest.js"></script>
+	<script type="text/javascript" src="js/jquery.tablesorter.js"></script>
+	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
+	<link href="themes/blue/style.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Taviraj" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="css/backoffice-style.css" />
+  <script type="text/javascript">
+  $(document).ready(function() {
+    $("#myTable").tablesorter();
+  });
+  </script>
 
-</script>
-<!-- Script Silde Image-->
-<script language="javascript" type="text/javascript" src="js/jquery.js"></script>
-<script language="javascript" type="text/javascript" src="js/jquery.easing.js"></script>
-<script language="javascript" type="text/javascript" src="js/script.js"></script>
-<style>
-	ul.lof-main-wapper li {
-		position:relative;
-	}
-	.style18 {font-size: 16pt; font-weight: ; font-family: "TH SarabunPSK", sans-serif; }
-.style22 {font-size: 24pt; font-weight: bold; font-family: "TH SarabunPSK", sans-serif; }
-body {
-	background-image: url(../images/BG7.jpg);
-	background-repeat: repeat;
-	margin-left: 0px;
-	margin-top: 0px;
-	margin-right: 0px;
-	margin-bottom: 0px;
-}
-
-</style>
-
-<style>
-	#content{
-	display:none
-	}
-	</style>
-	<script type="text/javascript" src="jquery-1.9.1.min.js"></script>
-	<script type="text/javascript">
-	$(document).ready(function(){
-	$('#link').click(function(){
-	$('#content').slideToggle(200);
-	});
-	});
-	</script>
-  <!-- ------------------------------------------------------test Menu-->
-<style type="text/css">
-/* เมนูปกติ */
-.css_menu{
-    position:relative;
-    display:block;
-    float:left;
-    width:100%;
-    height:25px;
-    background-color:#333;
-    color:#FFF;
-    text-align:center;
-    text-decoration:none;
-    line-height:25px;
-    margin-right:2px;
-}
-/*  เมนูเมื่อเมาส์ over*/
-.css_menu:hover{
-    position:relative;
-    display:block;
-    float:left;
-    width:100%;
-    height:25px;
-    background-color:#CCC;
-    color:#000;
-}
-/*  เมนูเมื่อ active*/
-.css_menu_active{
-    position:relative;
-    display:block;
-    float:left;
-    width:100%;
-    height:25px;
-    background-color:#CCC;
-    color:#000;
-    text-align:center;
-    text-decoration: underline;
-    line-height:25px;
-    margin-right:2px;
-}
-</style>
-
-<title>..DOCA WebManagement..</title>
+<title>DOCA Web Management</title>
 </head>
 <body topmargin="">
 <div id="fb-root"></div>
@@ -111,8 +45,8 @@ body {
   <td width="250" valign="top" background="images/baseBG.png">
 <?php require_once("scriptmenueditor.php"); ?>
     </td>
-  <td align="left" valign="top" background="images/baseBG.png"><p><span class="style18">Doca Backend ยินดีต้อนรับ</span></p>
-    <p><span class="style18">เลือกเมนูด้านข้างเพื่อจัดการข้อมูล</span></p></td>
+  <td align="center" valign="top" background="images/baseBG.png"><h1>DOCA Web Management ยินดีต้อนรับ</h1>
+    <p><span>เลือกเมนูด้านข้างเพื่อจัดการข้อมูล</span></p></td>
   </tr>
 </table>
 

@@ -217,17 +217,31 @@ require_once("callconnectionimproved.php");
 <tr valign="top" >
     <td width="250" height="300" align="center" background="images/baseBG.png">
     <div align="center">
-    <a href="http://www.rajabhaktipark.in.th/" target="_blank"><img src="images/leftmenu/ratchapak.png" width="250" height="60" vspace="0" border="0" /></a><br>
-    <a href="http://www.royalproject-rta.com/" target="_blank"><img src="images/leftmenu/rtaroyalproject.png" width="250" height="60" vspace="0" border="0" /></a><br>
-    <a href="http://www.aisc.rta.mi.th/" target="_blank"><img src="images/leftmenu/armyinformation.png" width="250" height="60" vspace="0" border="0" /></a><br>
-    <a href="https://www.armytour.go.th/" target="_blank"><img src="images/leftmenu/armytoursave.png" width="250" height="75" vspace="0" border="0" /></a><br>
-    <a href="http://www.rta.mi.th/RTAweb/information/57/12RMD.html" target="_blank"><img src="images/leftmenu/12value.png" width="250" height="75" vspace="0" border="0" /></a><br />
-    <a href="http://www.thailandwakeup.com/" target="_blank"><img src="images/leftmenu/banner_thailandwakeup.jpg" width="250" height="75" vspace="0" border="0" /></a><br />
-    <a href="http://doca.rta.mi.th/pracharat.php" target="_blank"><img src="images/banner-pracharat250.png" width="250" height="75" vspace="0" border="0" /></a><br />
-    <a href="https://www.govchannel.go.th/" target="_blank"><img src="images/leftmenu/banner-govchannel.png" width="250" height="75" vspace="0" border="0" /></a><br />
-    <a href="http://doca.rta.mi.th/new-constitution.php" target="_blank"><img src="images/leftmenu/banner_newconstitution250px.png" width="250" height="150" vspace="0" border="0" /></a><br />
-        <a href="https://drive.google.com/file/d/0Bw_W-lJh2kjBblEzWjl4akdBOGc/view" target="_blank"><img src="images/election2550.png" width="250" vspace="0" border="0" /></a>
 
+      <?php
+      require_once("callconnectionimproved.php");
+      $strLeftMenuSQL = "SELECT * FROM custom_menu WHERE menu_id != '' and menu_status ='y' order by menu_id asc";
+      $objLeftMenuQuery = mysqli_query($conn, $strLeftMenuSQL) or die ("Error Query [".$strImgSQL."]");
+      while($objLeftMenuResult = mysqli_fetch_assoc($objLeftMenuQuery)) {?>
+        <a href='<?php echo $objLeftMenuResult['menu_url']; ?>' target="_blank"><img src='<?php echo $objLeftMenuResult['menu_img'];?>' vspace="0" border="0"  alt='<?php echo $objLeftMenuResult['menu_description'];?>'/></a><br>
+      <?php } ?>
+
+      <p>หน่วยงานอื่น ๆ</p>
+
+      <a href="http://www.mod.go.th/Home.aspx" target="_blank">
+      <img src="images/banner_defence.png" width="250" height="75" vspace="2" border="0" /></a><br>
+
+      <a href="http://rtarf.mi.th" target="_blank">
+      <img src="images/banner_rtarf.jpg" width="250" height="55" vspace="2" border="0" /></a><br>
+
+      <a href="http://www.rta.mi.th/" target="_blank">
+      <img src="images/banner-army.png" width="250" height="75" vspace="2" border="0" /></a><br>
+
+      <a href="http://www3.navy.mi.th/" target="_blank">
+      <img src="images/banner-navy.png" width="250" height="75" vspace="2" border="0" /></a><br>
+
+      <a href="http://www.rtaf.mi.th/" target="_blank">
+      <img src="images/banner-airforce.png" width="250" height="75" vspace="2" border="0" /></a><br>
     </div>
 
 
@@ -394,12 +408,13 @@ require_once("callconnectionimproved.php");
   </tr>
   <tr background="images/baseBG.png">
 	<td width="1120" colspan="5" align="center">
-    <iframe width="370" height="200" src="https://www.youtube.com/embed/videoseries?list=PLNgxVZwie3t-TOxSEy61R42EKaIOjDe23" frameborder="0" allowfullscreen></iframe>
-    <iframe width="370" height="200" src="https://www.youtube.com/embed/videoseries?list=PLNgxVZwie3t_4O7NbhLE7KXRyOnlqF_I-" frameborder="0" allowfullscreen></iframe>
-    <iframe width="370" height="200" src="https://www.youtube.com/embed/videoseries?list=PLNgxVZwie3t-x9KEm6OrFDdUPWvKix7vx" frameborder="0" allowfullscreen></iframe>
-    <iframe width="370" height="200" src="https://www.youtube.com/embed/videoseries?list=PLr8CA-SlIPTSykqQipDeX-77HdgmeCjPT" frameborder="0" allowfullscreen></iframe>
-    <iframe width="370" height="200" src="https://www.youtube.com/embed/62wV94ZZMnQ" frameborder="0" allowfullscreen></iframe>
-    <iframe width="370" height="200" src="https://www.youtube.com/embed/qXpJ2HMLNbQ" frameborder="0" allowfullscreen></iframe>
+    <?php
+    require_once("callconnectionimproved.php");
+    $strChannelSQL = "SELECT * FROM channel WHERE channel_id != '' and channel_status ='y' order by channel_id asc";
+    $objChannelQuery = mysqli_query($conn, $strChannelSQL) or die ("Error Query [".$strChannelSQL."]");
+    while($objChannelResult = mysqli_fetch_assoc($objChannelQuery)) {?>
+      <iframe width="370" height="200" src='<?php echo $objChannelResult['channel_content']; ?>' frameborder="0" allowfullscreen></iframe>
+    <?php } ?>
     </td>
 
 
@@ -408,94 +423,20 @@ require_once("callconnectionimproved.php");
 <tr>
 	<td width="1120" height="25" colspan="5" background="images/main_splitter1120x25_Other.jpg"></td>
 </tr>
-<tr>
-    <td width="1120" height="75"><div align="center">
-    <a href="http://www.doca-rta-mi-th.com/drugreport.php" target="_blank">
-    <img src="images/drugreport.jpg" width="224" height="75" vspace="2" border="0" /></a>
-    </div></td>
-    <td width="224" height="75"><div align="center">
-    <a href="http://km.rta.mi.th/" target="_blank"><img src="images/cilvilkm111.jpg" width="224" height="75" vspace="2" border="0" /></a>
-    </div></td>
-    <td width="224" height="75"><div align="center">
-    <a href="http://plan.rta.mi.th/armycert/" target="_blank"><img src="images/rtacert.png" width="224" height="75" vspace="2" border="0" /></a>
-    </div></td>
-    <td width="224" height="75"><div align="center">
-    <a href="http://www.rtadrc.com/" target="_blank"><img src="images/civillogo_adrcrta.jpg" width="224" height="75" vspace="2" border="0" /></a>
-    </div></td>
-    <td width="224" height="75"><div align="center">
-    <a href="http://www.thaiarmyradio.net/" target="_blank"><img src="images/civilarmyradio.jpg" width="224" height="75" vspace="2" border="0" /></a>
-    </div></td>
 
-</tr>
-<tr>
-    <td width="1120" height="75"><div align="center">
-    <a href="http://www.ncmc.nsc.go.th/indexd.php"><img src="images/govern.jpg" width="224" height="75" vspace="2" border="0" /></a>
-    </div></td>
-    <td width="224" height="75">
-    <a href="https://www.facebook.com/weloverta"><img src="images/facebook.png" width="224" height="75" vspace="2" border="0" /></a>
-    </td>
-    <td width="224" height="75"><div align="center">
-    <a href="http://doca.rta.mi.th/km.php" target="_blank"><img src="images/KM.gif" width="224" height="75" vspace="2" border="0" /></a>
-    </div></td>
-    <td width="224" height="75"><div align="center">
-    <a href="asian.pdf" target="_blank"><img src="images/AS.png" width="224" height="75" vspace="2" border="0" /></a>
-    </div></td>
-    <td width="224" height="75"><div align="center">
-    <a href="Armydoca.html" target="_blank"><img src="images/e-learning.png" width="224" height="75" vspace="2" border="0" /></a>
-    </div></td>
+<?php
+require_once("callconnectionimproved.php");
+$strExternalUrlSQL = "SELECT * FROM external_url WHERE menu_id != '' and menu_status ='y' order by menu_id asc";
+$objExternalUrlQuery = mysqli_query($conn, $strExternalUrlSQL) or die ("Error Query [".$strExternalUrlSQL."]");
+$columncount = 0;
+while($objExternalUrlResult = mysqli_fetch_assoc($objExternalUrlQuery)) {?>
+  <?php if($columncount%5 == 0) {?><tr><?php } $columncount++; ?>
+    <td><a href='<?php echo $objExternalUrlResult['menu_url']; ?>' target="_blank"><img src='<?php echo $objExternalUrlResult['menu_img'];?>' width="224" height="75" vspace="2" border="0"  alt='<?php echo $objExternalUrlResult['menu_description'];?>'/></a></td>
+  <?php if($columncount%5 == 0) {?></tr><?php }
+  ?>
 
-</tr>
-<tr>
-    <td width="1120" height="75"><div align="center">
-    <a href="http://www.suanson.infantry-center.com/" target="_blank">
-    <img src="images/suanson.png" width="224" height="75" vspace="2" border="0" /></a>
-    </div></td>
-    <td width="224" height="75"><div align="center">
-    <a href="http://welcgd.cgd.go.th/wel/login.jsp" target="_blank">
-    <img src="images/accountant.png" width="224" height="75" vspace="2" border="0" /></a>
-    </div></td>
-    <td width="224" height="75"><div align="center">
-    <a href="http://www.oomsub.com/" target="_blank">
-    <img src="images/ormsub.png" width="224" height="75" vspace="2" border="0" /></a>
-    </div></td>
-    <td width="224" height="75"><div align="center">
-    <a href="http://www.gpf.or.th/web/index.asp" target="_blank">
-    <img src="images/kbs.png" width="224" height="75" vspace="2" border="0" /></a></div></td>
-    <td width="224" height="75"><div align="center"><a href="https://www.facebook.com/Armyunitedfootballclub/" target="_blank">
-    <img src="images/army-united.png" width="224" height="75" vspace="2" border="0" /></a></div></td>
+<?php } ?>
 
-</tr>
-<tr>
-	<td width="1120" height="25" colspan="5" background="/images/main_splitter1120x25_concerned.jpg"></td>
-</tr>
-<tr>
-    <td width="1120" height="75"><div align="center">
-    <a href="http://www.mod.go.th/Home.aspx" target="_blank">
-    <img src="images/banner_defence.png" width="224" height="75" vspace="2" border="0" /></a>
-    </div></td>
-
-    <td width="224" height="75"><div align="center">
-    <a href="http://rtarf.mi.th" target="_blank">
-    <img src="images/banner_rtarf.jpg" width="204" height="55" vspace="2" border="0" /></a>
-    </div></td>
-
-    <td width="224" height="75"><div align="center">
-    <a href="http://www.rta.mi.th/" target="_blank">
-    <img src="images/banner-army.png" width="224" height="75" vspace="2" border="0" /></a>
-    </div></td>
-
-    <td width="224" height="75"><div align="center">
-    <a href="http://www3.navy.mi.th/" target="_blank">
-    <img src="images/banner-navy.png" width="224" height="75" vspace="2" border="0" /></a>
-    </div></td>
-
-    <td width="224" height="75"><div align="center">
-    <a href="http://www.rtaf.mi.th/" target="_blank">
-    <img src="images/banner-airforce.png" width="224" height="75" vspace="2" border="0" /></a>
-    </div></td>
-
-
-</tr>
 </table>
 
 
