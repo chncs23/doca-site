@@ -40,7 +40,7 @@ function preview_cover() {
 
 			<div class="form-group">
 				<label for="journal_topic" class="tavirajFont">หัวข้อบทความ</label>
-				<input type="text" class="form-control" name="journal_topic" id="journal_topic" placeholder="ระบุบทความ" value='<?php echo $journal_topic;?>' required>
+				<input type="text" class="form-control" name="journal_topic" id="journal_topic" placeholder="ระบุบทความ" value="<?php echo $journal_topic;?>" required>
 			</div>
 
 			<?php if($journal_img != '') {?>
@@ -61,7 +61,7 @@ function preview_cover() {
 
 			<div class="form-group">
 				<label for="journal_path" class="tavirajFont">ไฟล์แนบ</label>
-				<input type="text" class="form-control" name="journal_path" id="journal_path" placeholder="ระบุไฟล์แนบ" value='<?php echo $journal_path;?>'>
+				<input type="text" class="form-control" name="journal_path" id="journal_path" placeholder="ระบุไฟล์แนบ" value="<?php echo $journal_path;?>">
 			</div>
 
 			<input type="submit" name="submit"value="แก้ไขข้อมูล">

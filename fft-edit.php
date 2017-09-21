@@ -34,10 +34,9 @@
 		<form action="update-fft.php" method="post" enctype="multipart/form-data">
 
 			<input type="hidden" name="fft_id" value=<?php echo $receiveid;?>>
-
 			<div class="form-group">
 				<label for="fft_details" class="tavirajFont">ข้อความ</label>
-				<input type="text" class="form-control" name="fft_details" id="fft_details" placeholder="ระบุข้อความ" value=<?php echo $FFT_details;?> required>
+				<input type="text" class="form-control" name="fft_details" id="fft_details" placeholder="ระบุข้อความ" value="<?php echo $FFT_details;?>" required>
 			</div>
 
 			<div class="form-group">
