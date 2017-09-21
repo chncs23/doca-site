@@ -220,7 +220,7 @@ require_once("callconnectionimproved.php");
 
       <?php
       require_once("callconnectionimproved.php");
-      $strLeftMenuSQL = "SELECT * FROM custom_menu WHERE menu_id != '' and menu_status ='y' order by menu_id asc";
+      $strLeftMenuSQL = "SELECT * FROM custom_menu WHERE menu_id != '' and menu_status ='y' order by menu_id ASC";
       $objLeftMenuQuery = mysqli_query($conn, $strLeftMenuSQL) or die ("Error Query [".$strImgSQL."]");
       while($objLeftMenuResult = mysqli_fetch_assoc($objLeftMenuQuery)) {?>
         <a href='<?php echo $objLeftMenuResult['menu_url']; ?>' target="_blank"><img src='<?php echo $objLeftMenuResult['menu_img'];?>' vspace="0" border="0"  alt='<?php echo $objLeftMenuResult['menu_description'];?>'/></a><br>
@@ -257,11 +257,10 @@ require_once("callconnectionimproved.php");
 <?php
 	require_once("callconnectionimproved.php");
 
-			  $strSQL = "SELECT * FROM activity WHERE act_id != '' order by act_id desc LIMIT 10";
+			  $strSQL = "SELECT * FROM activity WHERE act_id != '' ORDER BY act_id DESC LIMIT 10";
 			  $objQuery = mysqli_query($conn, $strSQL) or die ("Error Query [".$strSQL."]");
 			  $total=mysqli_num_rows($objQuery);
 			  //$sendRID  = $objResult["act_id"];
-
 
 				if($total>0)
 				{
@@ -295,8 +294,6 @@ require_once("callconnectionimproved.php");
 				$count;
 				while ($objResult=mysqli_fetch_array($objQuery))
 					{
-
-					//echo '<li>';
 					echo '<img src="images/bullet.jpg" alt="" width="10" height="10" border="0" class="style18" />';
 					echo '<a href="'.$objResult["ann_doc"].'" target="_blank">';
 					echo $objResult["ann_topic"];
@@ -305,8 +302,6 @@ require_once("callconnectionimproved.php");
 					echo '<a href="'.$objResult["ann_doc2"].'" target="_blank">';
 					echo $objResult["ann_subtopic"];
 					echo '</a>';
-					//echo '<img src="icon_new2.gif" alt="" width="22" height="15" border="0" />';
-					//echo '</li>';
 					echo '</br>';
 					}
 					$count+=1;
@@ -366,7 +361,7 @@ require_once("callconnectionimproved.php");
    <?php
 	require_once("callconnectionimproved.php");
 
-			  $strSQL = "SELECT * FROM journal WHERE journal_id != '' order by journal_id desc LIMIT 12";
+			  $strSQL = "SELECT * FROM journal WHERE journal_id != '' AND journal_img IS NULL order by journal_id DESC LIMIT 12";
 			  $objQuery = mysqli_query($conn, $strSQL) or die ("Error Query [".$strSQL."]");
 			  $total=mysqli_num_rows($objQuery);
 
@@ -390,16 +385,30 @@ require_once("callconnectionimproved.php");
 				}
  ?>
     </div></td>
+<td width="224" height="75" colspan="3" valign="middle"><div align="right">
+    <?php
+   require_once("callconnectionimproved.php");
 
-    <td width="224" height="75" colspan="3" valign="middle"><div align="right">
-    <a href="document/journal_doca34.pdf" target="_blank">
-	<img src="images/cover_doca34.png" alt="" width="175" height="235" border="0" /></a>
+         $strSQL = "SELECT * FROM journal WHERE journal_id != '' AND journal_img != '' order by journal_id DESC LIMIT 3";
+         $objQuery = mysqli_query($conn, $strSQL) or die ("Error Query [".$strSQL."]");
+         $total=mysqli_num_rows($objQuery);
 
-	<a href="document/poster_arrest.pdf" target="_blank">
-	<img src="images/cover-poster_arrest.jpg" alt="" width="175" height="235" border="0" /></a>
+         if($total>0)
+         {
+         $count;
+         while ($objResult=mysqli_fetch_array($objQuery))
+           {?>
 
-    <a href="document/poster_whymilitary.pdf" target="_blank">
-	<img src="images/cover-poster_whymilitary.jpg" alt="" width="175" height="235" border="0" /></a></div>
+          <a href='<?php echo $objResult["journal_path"];?>'  target="_blank">
+         	<img src='<?php echo $objResult["journal_img"];?>' alt="<?php echo $objResult["journal_topic"];?>" width="175" height="235" border="0" /></a>
+          <?php
+           }
+           $count+=1;
+         }
+  ?>
+
+
+</div>
     </td>
   </tr>
 
