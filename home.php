@@ -5,7 +5,9 @@
 <link rel="stylesheet" type="text/css" href="css/layout.css" />
 <link rel="stylesheet" type="text/css" href="css/style2.css" />
 <link rel="stylesheet" type="text/css" href="css/dropmenu.css" />
-<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="bootstrap/js/bootstrap.js"></script>
+<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
 <script type="text/javascript">
     $(function() {
       if ($.browser.msie && $.browser.version.substr(0,1)<7)
@@ -56,6 +58,14 @@ body {
 	margin-right: 0px;
 	margin-bottom: 0px;
 
+}
+
+p.left {
+  text-align: left;
+}
+
+p.center {
+  text-align: center;
 }
 
 
@@ -226,7 +236,7 @@ require_once("callconnectionimproved.php");
         <a href='<?php echo $objLeftMenuResult['menu_url']; ?>' target="_blank"><img src='<?php echo $objLeftMenuResult['menu_img'];?>' vspace="0" border="0"  alt='<?php echo $objLeftMenuResult['menu_description'];?>'/></a><br>
       <?php } ?>
 
-      <p>หน่วยงานอื่น ๆ</p>
+      <p class="center">หน่วยงานอื่น ๆ</p>
 
       <a href="http://www.mod.go.th/Home.aspx" target="_blank">
       <img src="images/banner_defence.png" width="250" height="75" vspace="2" border="0" /></a><br>
@@ -249,64 +259,101 @@ require_once("callconnectionimproved.php");
     <td width="635" align="left" background="images/baseBG.png">
 
         <!-- <a href="http://doca.rta.mi.th/doca-king10-wishwell2560.php" target="_blank"> <img src="images/doca-king10-wishwell2560/Banner-KingBlessing.png"></a> -->
-
-        <a href="http://doca.rta.mi.th/doca_king-9.php" target="_blank"> <iframe width="635" height="315" src="https://www.youtube.com/embed/videoseries?list=PLNgxVZwie3t_4Sjki1Gr2BUt6wWPCsV4G" frameborder="0" allowfullscreen="allowfullscreen"></iframe><img src="images/song-of-king9.png" /></a>
+        <a href="http://doca.rta.mi.th/doca_king-9.php" target="_blank"> <iframe width="635" height="315" src="https://www.youtube.com/embed/videoseries?list=PLNgxVZwie3t_4Sjki1Gr2BUt6wWPCsV4G" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
+        <img src="images/song-of-king9.png" /></a>
         <a href="document/computer-law59.pdf" target="_blank"><img src="images/computer-law59.jpg" /></a>
 
-    	<a href="" target="_blank"><img src="images/central_panel635x25_activity.jpg"/></a><br>
-<?php
-	require_once("callconnectionimproved.php");
+<div align="center" padding-top="10px"><img src="images/splitter.jpg" alt="" width="630" height="1"/> </div>
 
-			  $strSQL = "SELECT * FROM activity WHERE act_id != '' ORDER BY act_id DESC LIMIT 10";
-			  $objQuery = mysqli_query($conn, $strSQL) or die ("Error Query [".$strSQL."]");
-			  $total=mysqli_num_rows($objQuery);
-			  //$sendRID  = $objResult["act_id"];
+      <ul class="nav nav-tabs">
+        <li class="active"><a data-toggle="tab" href="#activity">ข่าวกิจกรรม</a></li>
+        <li><a data-toggle="tab" href="#announcement">ข่าวประชาสัมพันธ์</a></li>
+        <li><a data-toggle="tab" href="#procurement">ข่าวจัดซื้อจัดจ้าง</a></li>
+      </ul>
 
-				if($total>0)
-				{
-				$count = 0;
-				while ($objResult=mysqli_fetch_array($objQuery))
-					{
-					//echo '<li>';
-					echo '<img src="images/bullet.jpg" alt="" width="10" height="10" border="0" class="style18" />';
-					echo '<a href="gallerys.php?Rid='.$objResult["act_id"].'" target="_blank">';
-					echo '<span style="color: #003366;">';
-					echo $objResult["act_topic"];
-					echo '</span>';
-					echo '</a>';
-					//echo '<img src="images/icon_new2.gif" alt="" width="22" height="15" border="0" />';
-					//echo '</li>';
-					echo '</br>';
-					}
-					$count++;
-				}
- ?> <br>
-<a href="" target="_blank"><img src="images/central_panel635x25_information.jpg"/></a><br>
-<?php
-require_once("callconnectionimproved.php");
+      <div class="tab-content">
+      <div id="activity" class="tab-pane fade in active">
+        <?php
+        	require_once("callconnectionimproved.php");
 
-			  $strSQL = "SELECT * FROM announcement WHERE ann_id != '' and 	ann_status='y' order by ann_id desc";
-			  $objQuery = mysqli_query($conn, $strSQL) or die ("Error Query [".$strSQL."]");
-			  $total=mysqli_num_rows($objQuery);
+        			  $strSQL = "SELECT * FROM activity WHERE act_id != '' ORDER BY act_id DESC LIMIT 10";
+        			  $objQuery = mysqli_query($conn, $strSQL) or die ("Error Query [".$strSQL."]");
+        			  $total=mysqli_num_rows($objQuery);
+        			  //$sendRID  = $objResult["act_id"];
 
-				if($total>0)
-				{
-				$count;
-				while ($objResult=mysqli_fetch_array($objQuery))
-					{
-					echo '<img src="images/bullet.jpg" alt="" width="10" height="10" border="0" class="style18" />';
-					echo '<a href="'.$objResult["ann_doc"].'" target="_blank">';
-					echo $objResult["ann_topic"];
-					echo '</a>';
-					echo "&nbsp;&nbsp;";
-					echo '<a href="'.$objResult["ann_doc2"].'" target="_blank">';
-					echo $objResult["ann_subtopic"];
-					echo '</a>';
-					echo '</br>';
-					}
-					$count+=1;
-				}
- ?>
+        				if($total>0)
+        				{
+        				$count = 0;
+        				while ($objResult=mysqli_fetch_array($objQuery))
+        					{
+        					echo '<p class="left">';
+        					echo '<img src="images/bullet.jpg" alt="" width="10" height="10" border="0" class="style18" />';
+                  echo '&nbsp;&nbsp;';
+        					echo '<a href="gallerys.php?Rid='.$objResult["act_id"].'" target="_blank">';
+        					echo $objResult["act_topic"];
+        					echo '</a>';
+                  echo '&nbsp;&nbsp;';
+
+                if(time_diff_today($objResult["act_date"]) <= 3){
+                  echo '<span class="label label-danger">new</span>';
+                }
+
+        					echo '</p>';
+        					}
+        					$count++;
+        				}
+         ?>
+         <a class="btn btn-default" href="view-all-news.php">ดูข่าวทั้งหมด</a>
+      </div>
+
+      <div id="announcement" class="tab-pane fade">
+        <?php
+        require_once("callconnectionimproved.php");
+
+        			  $strSQL = "SELECT * FROM announcement WHERE ann_id != '' and 	ann_status='y' order by ann_id desc";
+        			  $objQuery = mysqli_query($conn, $strSQL) or die ("Error Query [".$strSQL."]");
+        			  $total=mysqli_num_rows($objQuery);
+
+        				if($total>0)
+        				{
+        				$count;
+        				while ($objResult=mysqli_fetch_array($objQuery))
+        					{
+                  echo '<p class="left">';
+        					echo '<img src="images/bullet.jpg" alt="" width="10" height="10" border="0" class="style18" />';
+                  echo "&nbsp;&nbsp;";
+        					echo '<a href="'.$objResult["ann_doc"].'" target="_blank">';
+        					echo $objResult["ann_topic"];
+        					echo '</a>';
+        					echo "&nbsp;&nbsp;";
+        					echo '<a href="'.$objResult["ann_doc2"].'" target="_blank">';
+        					echo $objResult["ann_subtopic"];
+        					echo '</a>';
+                  echo "&nbsp;&nbsp;";
+                  if(time_diff_today($objResult["ann_date"]) <= 3){
+                    echo '<span class="label label-danger">new</span>';
+                  }
+
+          					echo '</p>';
+        					}
+        					$count+=1;
+        				}
+         ?>
+        <a class="btn btn-default" href="view-all-news.php">ดูประกาศทั้งหมด</a>
+      </div>
+    </div>
+
+    <?php
+    function time_diff_today($start_time) {
+      $from_time = strtotime($start_time);
+      $diff = abs(time() - $from_time);
+      $years = floor($diff / (365*60*60*24));
+      $months = floor(($diff - $years * 365*60*60*24) / (30*60*60*24));
+      $days = floor(($diff - $years * 365*60*60*24 - $months*30*60*60*24)/ (60*60*24));
+      return ($days < 0 ? 0 : abs($days));
+    }
+    ?>
+
  <br>
  <div align="center"><img src="images/splitter.jpg" alt="" width="630" height="1"/> </div>
   <br>
@@ -361,7 +408,7 @@ require_once("callconnectionimproved.php");
    <?php
 	require_once("callconnectionimproved.php");
 
-			  $strSQL = "SELECT * FROM journal WHERE journal_id != '' AND journal_img IS NULL order by journal_id DESC LIMIT 12";
+			  $strSQL = "SELECT * FROM journal WHERE journal_id != '' AND journal_img = '' order by journal_id DESC LIMIT 12";
 			  $objQuery = mysqli_query($conn, $strSQL) or die ("Error Query [".$strSQL."]");
 			  $total=mysqli_num_rows($objQuery);
 
