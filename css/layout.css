@@ -1,26 +1,116 @@
 body {
 	margin:0px;
-	font-family:Arial,
-	Helvetica, sans-serif;
-	background:#c6c6c6;
+	background:#ececec !important;
+	font-family: 'Taviraj', serif !important;
+	padding-top: 50px;
+	background-size:100%;
 }
 
-#container {
-	width:870px;
-	margin:0px auto 0px;
-	background:#FFFFFF;
-	padding:0px;
-	font-size:12px;
-	margin-top:50px;
+.panel-heading {
+	background-color: #fbcfea !important;
 }
+
+.panel-title {
+	color: #000000 !important;
+}
+
+.container {
+	background:#FFFFFF;
+}
+
+#doca-logo {
+	display:block;
+	margin: auto;
+	max-width: 80%;
+	max-height: 80%;
+	position:relative;
+	top:50%; /* Move the image down, so its top is half way down the container */
+	margin-top:50px; /* Move the image back up half its height */
+}
+
+#motto {
+	display:block;
+	margin: auto;
+	max-width: 90%;
+	max-height: 90%;
+	position:relative;
+	top:50%; /* Move the image down, so its top is half way down the container */
+	margin-top:100px; /* Move the image back up half its height */
+}
+
+#commander {
+	display: block;
+	margin: auto;
+	padding-bottom: 15px;
+}
+
+
+#doca-header {
+	background-image: url("../images/BG2.png");
+	background-position: center;
+	padding-top:  10px;
+	background-size:100%;
+	margin: auto;
+}
+
+.marquee {
+	margin-bottom: 10px;
+}
+
+.center {
+	margin: auto;
+	padding: 5px;
+}
+
+.nopadding-right {
+	padding-right: 0 !important;
+}
+
+.nopadding-left {
+	padding-left: 0 !important;
+}
+
+.col-half-padding-left {
+	padding-left: 7.5px !important;
+}
+
+.col-half-padding-rigft {
+	padding-right: 7.5px !important;
+}
+
+.margin-top {
+	margin-top: 15px !important;
+}
+
+.mini-padding {
+	padding: 2px !important;
+	margin: 2px !important;
+}
+
+.col-padding-vertical {
+	padding-top: 15px !important;
+	padding-bottom: 15px !important;
+}
+
+.col-padding-bottom {
+	padding-bottom: 15px !important;
+}
+
+
+.button-right {
+  float: right;
+}
+
 
 a{
 	text-transform:none;
 	color:#333
 }
 
-#footer{
-	background:#F0F0F0;
-	padding:10px;
-	border:#999 dotted 1px;
+.footer {
+	padding-top: 15px;
+	padding-left: 20px;
+  width: 100%;
+  height: auto;
+  background-color: #fbcfea;
 }

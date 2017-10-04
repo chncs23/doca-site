@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>กรมกิจการพลเรือนทหารบก</title>
-<style>	
+<style>
 body {
 	background-image: url(images/bg-yellow.jpg);
 	background-repeat: repeat;
@@ -25,7 +25,7 @@ body {
   </tr>
   <tr valign="middle">
         <td height="50" align="center" > <img src="images/seperater2.png" alt="" width="150" height="20" /><br />
-        <a href="http://doca.rta.mi.th/home.php"><img src="images/enterweb-nologo.png" alt="" /></a>
+        <a href="home.php"><img src="images/enterweb-nologo.png" alt="" /></a>
         </td>
   </tr>
 </table>
