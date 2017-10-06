@@ -47,9 +47,7 @@
 	</div>
 
 	<footer class="footer">
-		<div>
-			© 2560 กรมกิจการพลเรือนทหารบก
-		</div>
+		<?php include("footer.html") ?>
 	</footer>
 </body>
 
