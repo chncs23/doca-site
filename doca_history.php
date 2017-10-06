@@ -7,15 +7,17 @@
 <link rel="stylesheet" type="text/css" href="css/layout.css" />
 <link rel="stylesheet" type="text/css" href="css/style2.css" />
 <link rel="stylesheet" type="text/css" href="css/dropmenu.css" />
-      
-</script>  
-<!-- Script Silde Image-->   
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="bootstrap/js/bootstrap.js"></script>
+<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css"> 
+<!-- Script Silde Image-->
 <script language="javascript" type="text/javascript" src="js/jquery.js"></script>
 <script language="javascript" type="text/javascript" src="js/jquery.easing.js"></script>
 <script language="javascript" type="text/javascript" src="js/script.js"></script>
-<style>	
+<style>
 	ul.lof-main-wapper li {
-		position:relative;	
+		position:relative;
 	}
 	.style18 {font-size: 16pt; font-weight: ;  font-family: "TH SarabunPSK", sans-serif; }
 	.style22 {font-size: 24pt; font-weight: bold:; color: #F00; font-family: "TH SarabunPSK", sans-serif; }
@@ -28,51 +30,51 @@ body {
 	margin-bottom: 0px;
 	line-height:normal;
 }
-	
+
 
 </style>
 
 
-  <!-- ------------------------------------------------------test Menu--> 
-<style type="text/css">  
-/* เมนูปกติ */  
-.css_menu{  
-    position:relative;  
-    display:block;  
-    float:left;  
-    width:100px;  
-    height:25px;  
-    background-color:#333;  
-    color: #FFF;   
-    text-align:center;  
-    text-decoration:none;  
-    line-height:25px;  
-    margin-right:2px;  
-}  
-/*  เมนูเมื่อเมาส์ over*/  
-.css_menu:hover{  
-    position:relative;  
-    display:block;  
-    float:left;  
-    width:100px;  
-    height:25px;  
-    background-color:#CCC;  
-    color:#000;   
-}  
-/*  เมนูเมื่อ active*/  
-.css_menu_active{  
-    position:relative;  
-    display:block;  
-    float:left;  
-    width:100px;  
-    height:25px;  
-    background-color:#CCC;  
-    color:#000;   
-    text-align:center;  
-    text-decoration:underline;  
-    line-height:25px;  
-    margin-right:2px;  
-} 
+  <!-- ------------------------------------------------------test Menu-->
+<style type="text/css">
+/* เมนูปกติ */
+.css_menu{
+    position:relative;
+    display:block;
+    float:left;
+    width:100px;
+    height:25px;
+    background-color:#333;
+    color: #FFF;
+    text-align:center;
+    text-decoration:none;
+    line-height:25px;
+    margin-right:2px;
+}
+/*  เมนูเมื่อเมาส์ over*/
+.css_menu:hover{
+    position:relative;
+    display:block;
+    float:left;
+    width:100px;
+    height:25px;
+    background-color:#CCC;
+    color:#000;
+}
+/*  เมนูเมื่อ active*/
+.css_menu_active{
+    position:relative;
+    display:block;
+    float:left;
+    width:100px;
+    height:25px;
+    background-color:#CCC;
+    color:#000;
+    text-align:center;
+    text-decoration:underline;
+    line-height:25px;
+    margin-right:2px;
+}
 
 a:link {
 	text-decoration: none;
@@ -104,9 +106,9 @@ a:active {
 <table width="1120" border="0" align="center" cellpadding="0" cellspacing="0">
   <tr valign="top">
     <td colspan="4">
-   <?php 
+   <?php
 	require_once("scriptmenu.php");
-	?>   
+	?>
  <!-- End Menu ----------------------------------->
     </td>
 </table>
@@ -148,7 +150,7 @@ a:active {
     และต่อมาได้ย้ายเข้าที่ตั้งปกติถาวร ณ กองบัญชาการกองทัพบก ถนนราชดำเนินนอก เขตบางขุนพรม กรุงเทพมหานคร</p></td>
 </tr>
 <tr>
-  <td colspan="2" align="center" valign="top" ><p class="style18"> ที่ผ่านมามีผู้ดำรงตำแหน่งเจ้ากรมกิจการพลเรือนทหารบกมาแล้ว 13 ท่าน โดยปัจจุบันมี 
+  <td colspan="2" align="center" valign="top" ><p class="style18"> ที่ผ่านมามีผู้ดำรงตำแหน่งเจ้ากรมกิจการพลเรือนทหารบกมาแล้ว 13 ท่าน โดยปัจจุบันมี
   <a href="http://doca.rta.mi.th/doca_commander.php" target="_blank">พล.ท. ธเนศ กาลพฤกษ์ </a>เป็นเจ้ากรมกิจการพลเรือนทหารบก</p>
     <p class="style18"><img src="images/seperater2.png" alt="" width="400" height="20" /></p>
     </td>

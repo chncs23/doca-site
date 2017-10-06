@@ -7,8 +7,10 @@
 <link rel="stylesheet" type="text/css" href="css/layout.css" />
 <link rel="stylesheet" type="text/css" href="css/style2.css" />
 <link rel="stylesheet" type="text/css" href="css/dropmenu.css" />
-      
-</script>  
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="bootstrap/js/bootstrap.js"></script>
+<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">   
 <!-- Script Gallery-->
     <script type="text/javascript" src="../js/jquery-1.9.1.min.js"></script>
     <script type="text/javascript" src="../js/jssor.js"></script>
@@ -108,9 +110,9 @@
 
 
 
-<style>	
+<style>
 	ul.lof-main-wapper li {
-		position:relative;	
+		position:relative;
 	}
 .style18 {font-size: 16pt; font-weight: ; font-family: "TH Sarabun New", sans-serif; }
 .style20 {font-size: 18pt; font-weight: bold; color:#F00; font-family: "TH Sarabun New", sans-serif; }
@@ -122,51 +124,51 @@ body {
 	margin-right: 0px;
 	margin-bottom: 0px;
 }
-	
+
 
 </style>
 
 
-<!-- ------------------------------------------------------Tab Menu--> 
-<style type="text/css">  
-/* เมนูปกติ */  
-.css_menu{  
-    position:relative;  
-    display:block;  
-    float:left;  
-    width:100px;  
-    height:25px;  
-    background-color:#333;  
-    color: #FFF;   
-    text-align:center;  
-    text-decoration:none;  
-    line-height:25px;  
-    margin-right:2px;  
-}  
-/*  เมนูเมื่อเมาส์ over*/  
-.css_menu:hover{  
-    position:relative;  
-    display:block;  
-    float:left;  
-    width:100px;  
-    height:25px;  
-    background-color:#CCC;  
-    color:#000;   
-}  
-/*  เมนูเมื่อ active*/  
-.css_menu_active{  
-    position:relative;  
-    display:block;  
-    float:left;  
-    width:100px;  
-    height:25px;  
-    background-color:#CCC;  
-    color:#000;   
-    text-align:center;  
-    text-decoration:underline;  
-    line-height:25px;  
-    margin-right:2px;  
-} 
+<!-- ------------------------------------------------------Tab Menu-->
+<style type="text/css">
+/* เมนูปกติ */
+.css_menu{
+    position:relative;
+    display:block;
+    float:left;
+    width:100px;
+    height:25px;
+    background-color:#333;
+    color: #FFF;
+    text-align:center;
+    text-decoration:none;
+    line-height:25px;
+    margin-right:2px;
+}
+/*  เมนูเมื่อเมาส์ over*/
+.css_menu:hover{
+    position:relative;
+    display:block;
+    float:left;
+    width:100px;
+    height:25px;
+    background-color:#CCC;
+    color:#000;
+}
+/*  เมนูเมื่อ active*/
+.css_menu_active{
+    position:relative;
+    display:block;
+    float:left;
+    width:100px;
+    height:25px;
+    background-color:#CCC;
+    color:#000;
+    text-align:center;
+    text-decoration:underline;
+    line-height:25px;
+    margin-right:2px;
+}
 a:link {
 	text-decoration: none;
 }
@@ -196,9 +198,9 @@ a:active {
 <table width="1120" border="0" align="center" cellpadding="0" cellspacing="0">
   <tr valign="top">
     <td colspan="4">
-   <?php 
+   <?php
 	require_once("scriptmenu.php");
-	?>   
+	?>
  <!-- End Menu ----------------------------------->
     </td>
 </table>
@@ -210,14 +212,14 @@ a:active {
 </table>
 <table width="1120" border="0" align="center" cellpadding="0" cellspacing="10">
 <tr>
-  <td width="250" height="300" align="center" valign="top" background="images/baseBG.png"><p>  
-    <p><span class="style18">บทเพลงในหลวงรัชกาลที่ ๙</span>    
+  <td width="250" height="300" align="center" valign="top" background="images/baseBG.png"><p>
+    <p><span class="style18">บทเพลงในหลวงรัชกาลที่ ๙</span>
     <p><span class="style18"><img src="images/seperater1.png" alt="" width="150" height="10" /></span>
-<p>    
+<p>
 <!-- <audio src="King9-Version1.mp3" controls ></audio> -->
 </td>
   <td align="center" valign="top" background="images/baseBG.png">
-  
+
 
 
 <br />
@@ -227,7 +229,7 @@ a:active {
 <hr/>
 <iframe src='https://www.4shared.com/web/embed/audio/file/EtUjudd-ce?type=NORMAL&widgetWidth=530&showArtwork=true&playlistHeight=0&widgetRid=894298542605' style='overflow:hidden;height:152px;width:530px;border: 0;margin:0;'></iframe>
 <!-- <audio src="King9-Version2.mp3" controls ></audio> -->
-<br /> 
+<br />
 <a href="King9-Version2.mp3" download="King9-Version2.mp3" target="_blank">>> Download << </a>
 <!-- <input type="button"  value="Download" onclick="window.open('King9-Version2.mp3');"/>--><br />
 <span class="style18">[เพลงในหลวงรัชกาลที่ ๙ ขับร้องโดย ชมพู ฟรุ้ตตี้]</span>
@@ -235,7 +237,7 @@ a:active {
 <hr/>
 <iframe src='https://www.4shared.com/web/embed/audio/file/vE2iKMWXce?type=NORMAL&widgetWidth=530&showArtwork=true&playlistHeight=0&widgetRid=961072405594' style='overflow:hidden;height:152px;width:530px;border: 0;margin:0;'></iframe>
 <!-- <audio src="King9-BackingTrack.mp3" controls ></audio> -->
-<br /> 
+<br />
 <a href="King9-BackingTrack.mp3" download="King9-BackingTrack.mp3" target="_blank">>> Download  << </a>
 
 <!-- <input type="button"  value="Download" onclick="window.open('King9-BackingTrack.mp3');"/>--><br />
@@ -244,7 +246,7 @@ a:active {
 <hr/>
 <span class="style20">Download ด้วย Google Drive </span>
 <div align="left">
-   		<iframe src="https://drive.google.com/embeddedfolderview?id=0Bw_W-lJh2kjBeE1xNHJRcFFydEk&usp#List" width="850" height="250" frameborder="1"></iframe> 
+   		<iframe src="https://drive.google.com/embeddedfolderview?id=0Bw_W-lJh2kjBeE1xNHJRcFFydEk&usp#List" width="850" height="250" frameborder="1"></iframe>
 </div>
   </td>
   </tr>

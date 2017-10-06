@@ -7,15 +7,17 @@
 <link rel="stylesheet" type="text/css" href="css/layout.css" />
 <link rel="stylesheet" type="text/css" href="css/style2.css" />
 <link rel="stylesheet" type="text/css" href="css/dropmenu.css" />
-      
-</script>  
-<!-- Script Silde Image-->   
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="bootstrap/js/bootstrap.js"></script>
+<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">   
+<!-- Script Silde Image-->
 <script language="javascript" type="text/javascript" src="js/jquery.js"></script>
 <script language="javascript" type="text/javascript" src="js/jquery.easing.js"></script>
 <script language="javascript" type="text/javascript" src="js/script.js"></script>
-<style>	
+<style>
 	ul.lof-main-wapper li {
-		position:relative;	
+		position:relative;
 	}
 	.style18 {font-size: 16pt; font-weight: ; font-family: "TH SarabunPSK", sans-serif; }
 .style22 {font-size: 24pt; font-weight: bold; font-family: "TH SarabunPSK", sans-serif; }
@@ -29,51 +31,51 @@ body {
 	margin-right: 0px;
 	margin-bottom: 0px;
 }
-	
+
 
 </style>
 
 
-  <!-- ------------------------------------------------------test Menu--> 
-<style type="text/css">  
-/* เมนูปกติ */  
-.css_menu{  
-    position:relative;  
-    display:block;  
-    float:left;  
-    width:100px;  
-    height:25px;  
-    background-color:#333;  
-    color: #FFF;   
-    text-align:center;  
-    text-decoration:none;  
-    line-height:25px;  
-    margin-right:2px;  
-}  
-/*  เมนูเมื่อเมาส์ over*/  
-.css_menu:hover{  
-    position:relative;  
-    display:block;  
-    float:left;  
-    width:100px;  
-    height:25px;  
-    background-color:#CCC;  
-    color:#000;   
-}  
-/*  เมนูเมื่อ active*/  
-.css_menu_active{  
-    position:relative;  
-    display:block;  
-    float:left;  
-    width:100px;  
-    height:25px;  
-    background-color:#CCC;  
-    color:#000;   
-    text-align:center;  
-    text-decoration:underline;  
-    line-height:25px;  
-    margin-right:2px;  
-} 
+  <!-- ------------------------------------------------------test Menu-->
+<style type="text/css">
+/* เมนูปกติ */
+.css_menu{
+    position:relative;
+    display:block;
+    float:left;
+    width:100px;
+    height:25px;
+    background-color:#333;
+    color: #FFF;
+    text-align:center;
+    text-decoration:none;
+    line-height:25px;
+    margin-right:2px;
+}
+/*  เมนูเมื่อเมาส์ over*/
+.css_menu:hover{
+    position:relative;
+    display:block;
+    float:left;
+    width:100px;
+    height:25px;
+    background-color:#CCC;
+    color:#000;
+}
+/*  เมนูเมื่อ active*/
+.css_menu_active{
+    position:relative;
+    display:block;
+    float:left;
+    width:100px;
+    height:25px;
+    background-color:#CCC;
+    color:#000;
+    text-align:center;
+    text-decoration:underline;
+    line-height:25px;
+    margin-right:2px;
+}
 a:link {
 	color: #333;
 	text-decoration: none;
@@ -105,9 +107,9 @@ a:active {
 <table width="1120" border="0" align="center" cellpadding="0" cellspacing="0">
   <tr valign="top">
     <td colspan="4">
-   <?php 
+   <?php
 	require_once("scriptmenu.php");
-	?>   
+	?>
  <!-- End Menu ----------------------------------->
     </td>
 </table>
@@ -130,9 +132,9 @@ a:active {
   </td>
   <td rowspan="2" align="left" valign="top" background="images/baseBG.png" >
 <a href="dep_civil_affair.php">Home</a> >
-<a href="dep_civil_affair-1.php">แผนกสนับสนุนสถาบันหลักของชาติ</a> >  
+<a href="dep_civil_affair-1.php">แผนกสนับสนุนสถาบันหลักของชาติ</a> >
 <a href="dep_civil_affair-2.php">แผนกปฏิบัติการกิจการพลเรือน</a> >
-<a href="dep_civil_affair-3.php">แผนกการเมืองและการปกครอง</a> > 
+<a href="dep_civil_affair-3.php">แผนกการเมืองและการปกครอง</a> >
 <a href="dep_civil_affair-4.php">แผนกกิจกรรมพิเศษ</a>
 <br />
 <p><span class="style25">แผนกปฏิบัติการกิจการพลเรือน</span></p>
@@ -146,7 +148,7 @@ a:active {
     <td>&nbsp;</td>
     <td align="center"><span class="style18">ตำแหน่ง :  หัวหน้าแผนก</span></td>
     <td>&nbsp;</td>
-  </tr>     
+  </tr>
   <tr>
         <td>&nbsp;</td>
         <td align="center" valign="middle"><img src="images/depcivil/Busaba.png" width="150" height="215" vspace="0" border="0" /></td>
@@ -168,7 +170,7 @@ a:active {
         <td colspan="3" align="center" valign="top"><p class="style18">ชื่อ : ส.ต.หญิง ปัทมา  วิลัย<br />ตำแหน่ง :  เสมียน</p></td>
         </tr>
     </table>
-    
+
       <table border="0" cellspacing="0" width="100%">
       <tr>
         <th colspan="2" align="left"><strong><u><span class="style18">งานที่รับผิดชอบ</span></u>:</strong></th>
@@ -191,7 +193,7 @@ a:active {
       </tr>
       <tr>
         <td colspan="2" align="left"></td>
-        </tr>        
+        </tr>
        <tr>
         <td colspan="2" align="left"><strong><u><span class="style18">เบอร์โทรศัพท์ประจำแผนก :</span></u></strong></td>
         </tr>

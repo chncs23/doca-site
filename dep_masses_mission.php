@@ -7,15 +7,17 @@
 <link rel="stylesheet" type="text/css" href="css/layout.css" />
 <link rel="stylesheet" type="text/css" href="css/style2.css" />
 <link rel="stylesheet" type="text/css" href="css/dropmenu.css" />
-      
-</script>  
-<!-- Script Silde Image-->   
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="bootstrap/js/bootstrap.js"></script>
+<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css"> 
+<!-- Script Silde Image-->
 <script language="javascript" type="text/javascript" src="js/jquery.js"></script>
 <script language="javascript" type="text/javascript" src="js/jquery.easing.js"></script>
 <script language="javascript" type="text/javascript" src="js/script.js"></script>
-<style>	
+<style>
 	ul.lof-main-wapper li {
-		position:relative;	
+		position:relative;
 	}
 	.style18 {font-size: 16pt; font-weight: ; font-family: "TH SarabunPSK", sans-serif; }
 .style22 {font-size: 24pt; font-weight: bold; font-family: "TH SarabunPSK", sans-serif; }
@@ -43,46 +45,46 @@ body {
 	});
 	});
 	</script>
-  <!-- ------------------------------------------------------test Menu--> 
-<style type="text/css">  
-/* เมนูปกติ */  
-.css_menu{  
-    position:relative;  
-    display:block;  
-    float:left;  
-    width:100px;  
-    height:25px;  
-    background-color:#333;  
-    color:#FFF;   
-    text-align:center;  
-    text-decoration:none;  
-    line-height:25px;  
-    margin-right:2px;  
-}  
-/*  เมนูเมื่อเมาส์ over*/  
-.css_menu:hover{  
-    position:relative;  
-    display:block;  
-    float:left;  
-    width:100px;  
-    height:25px;  
-    background-color:#CCC;  
-    color:#000;   
-}  
-/*  เมนูเมื่อ active*/  
-.css_menu_active{  
-    position:relative;  
-    display:block;  
-    float:left;  
-    width:100px;  
-    height:25px;  
-    background-color:#CCC;  
-    color:#000;   
-    text-align:center;  
-    text-decoration: underline;  
-    line-height:25px;  
-    margin-right:2px;  
-} 
+  <!-- ------------------------------------------------------test Menu-->
+<style type="text/css">
+/* เมนูปกติ */
+.css_menu{
+    position:relative;
+    display:block;
+    float:left;
+    width:100px;
+    height:25px;
+    background-color:#333;
+    color:#FFF;
+    text-align:center;
+    text-decoration:none;
+    line-height:25px;
+    margin-right:2px;
+}
+/*  เมนูเมื่อเมาส์ over*/
+.css_menu:hover{
+    position:relative;
+    display:block;
+    float:left;
+    width:100px;
+    height:25px;
+    background-color:#CCC;
+    color:#000;
+}
+/*  เมนูเมื่อ active*/
+.css_menu_active{
+    position:relative;
+    display:block;
+    float:left;
+    width:100px;
+    height:25px;
+    background-color:#CCC;
+    color:#000;
+    text-align:center;
+    text-decoration: underline;
+    line-height:25px;
+    margin-right:2px;
+}
 </style>
 
 <title>..กองกิจการมวลชน..</title>
@@ -101,9 +103,9 @@ body {
 <table width="1120" border="0" align="center" cellpadding="0" cellspacing="0">
   <tr valign="top">
     <td colspan="4">
-   <?php 
+   <?php
 	require_once("scriptmenu.php");
-	?>    
+	?>
  <!-- End Menu ----------------------------------->
     </td>
 </table>
@@ -125,18 +127,18 @@ body {
     ผอ.กกช.สจว.กร.ทบ. </span></p>
   </td>
   <td width="580" rowspan="2" align="left" valign="top" background="images/baseBG.png">
-<?php  
-// ฟังก์ชั่นอย่างง่ายใช้ทดสอบ หน้าปัจจุบัน  
-function active_menu($link_chk,$default_active=0){  
-    if($default_active==1){  
-        return ($_SERVER['REQUEST_URI']==$link_chk || $_SERVER['QUERY_STRING']=="")?"_active":"";  
-    }else{  
-        return ($_SERVER['REQUEST_URI']==$link_chk)?"_active":"";  
-    }  
-}  
-?>  
+<?php
+// ฟังก์ชั่นอย่างง่ายใช้ทดสอบ หน้าปัจจุบัน
+function active_menu($link_chk,$default_active=0){
+    if($default_active==1){
+        return ($_SERVER['REQUEST_URI']==$link_chk || $_SERVER['QUERY_STRING']=="")?"_active":"";
+    }else{
+        return ($_SERVER['REQUEST_URI']==$link_chk)?"_active":"";
+    }
+}
+?>
 <a class="css_menu<?=active_menu("/dep_masses.php?menu=1")?>" href="dep_masses.php">กิจกรรมหน่วย</a>
-<a class="css_menu<?=active_menu("/dep_masses.php?menu=2",1)?>" href="dep_masses_mission.php">ภารกิจหน่วย</a>  
+<a class="css_menu<?=active_menu("/dep_masses.php?menu=2",1)?>" href="dep_masses_mission.php">ภารกิจหน่วย</a>
 <br>
 <p class="style18">
   1. รับผิดชอบเกี่ยวกับการจัดตั้งมวลชน การบริหารและพัฒนาระบบงาน การใช้มวลชนเพื่อสนับสนุนความมั่นคงของชาติในความรับผิดชอบของกองทัพบก <br>
@@ -147,9 +149,9 @@ function active_menu($link_chk,$default_active=0){
 </p>
    </td>
   <td width="250" rowspan="2" align="left" valign="top" background="images/baseBG.png">
-  
 
-  
+
+
   </td>
 </tr>
 <tr>

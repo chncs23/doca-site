@@ -7,15 +7,17 @@
 <link rel="stylesheet" type="text/css" href="css/layout.css" />
 <link rel="stylesheet" type="text/css" href="css/style2.css" />
 <link rel="stylesheet" type="text/css" href="css/dropmenu.css" />
-      
-</script>  
-<!-- Script Silde Image-->   
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="bootstrap/js/bootstrap.js"></script>
+<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">   
+<!-- Script Silde Image-->
 <script language="javascript" type="text/javascript" src="js/jquery.js"></script>
 <script language="javascript" type="text/javascript" src="js/jquery.easing.js"></script>
 <script language="javascript" type="text/javascript" src="js/script.js"></script>
-<style>	
+<style>
 	ul.lof-main-wapper li {
-		position:relative;	
+		position:relative;
 	}
 .style18 {font-size: 16pt; font-weight: ; font-family: "TH SarabunPSK", sans-serif; }
 .style22 {font-size: 24pt; font-weight: bold; font-family: "TH SarabunPSK", sans-serif; }
@@ -29,95 +31,95 @@ body {
 	margin-right: 0px;
 	margin-bottom: 0px;
 }
-	
+
 
 </style>
 
 
-<!-- ------------------------------------------------------test Menu--> 
-<style type="text/css">  
-/* เมนูปกติ */  
-.css_menumain{  
-    position:relative;  
-    display:block;  
-    float:left;  
-    width:870px;  
-    height:25px;  
-    background-color:#333;  
-    color: #FFF;   
-    text-align:center;  
-    text-decoration:none;  
-    line-height:25px;  
-    margin-right:2px;  
-}  
-/*  เมนูเมื่อเมาส์ over*/  
-.css_menumain:hover{  
-    position:relative;  
-    display:block;  
-    float:left;  
-    width:870px;  
-    height:25px;  
-    background-color:#CCC;  
-    color:#000;   
-}  
-/*  เมนูเมื่อ active*/  
-.css_menumain_active{  
-    position:relative;  
-    display:block;  
-    float:left;  
-    width:870px;  
-    height:25px;  
-    background-color:#CCC;  
-    color:#000;   
-    text-align:center;  
-    text-decoration:underline;  
-    line-height:25px;  
-    margin-right:2px;  
-} 
-</style>
-
-<style type="text/css">  
-/* เมนูปกติ */  
-.css_menu{  
-    position:relative;  
-    display:block;  
-    float:left;  
-    width:100%;  
-    height:25px;  
-    background-color:#333;  
-    color: #FFF;   
-    text-align:center;  
-    text-decoration:none;  
-    line-height:25px;  
+<!-- ------------------------------------------------------test Menu-->
+<style type="text/css">
+/* เมนูปกติ */
+.css_menumain{
+    position:relative;
+    display:block;
+    float:left;
+    width:870px;
+    height:25px;
+    background-color:#333;
+    color: #FFF;
+    text-align:center;
+    text-decoration:none;
+    line-height:25px;
     margin-right:2px;
-	font-size: 24pt; 
-	font-weight: bold; 
+}
+/*  เมนูเมื่อเมาส์ over*/
+.css_menumain:hover{
+    position:relative;
+    display:block;
+    float:left;
+    width:870px;
+    height:25px;
+    background-color:#CCC;
+    color:#000;
+}
+/*  เมนูเมื่อ active*/
+.css_menumain_active{
+    position:relative;
+    display:block;
+    float:left;
+    width:870px;
+    height:25px;
+    background-color:#CCC;
+    color:#000;
+    text-align:center;
+    text-decoration:underline;
+    line-height:25px;
+    margin-right:2px;
+}
+</style>
+
+<style type="text/css">
+/* เมนูปกติ */
+.css_menu{
+    position:relative;
+    display:block;
+    float:left;
+    width:100%;
+    height:25px;
+    background-color:#333;
+    color: #FFF;
+    text-align:center;
+    text-decoration:none;
+    line-height:25px;
+    margin-right:2px;
+	font-size: 24pt;
+	font-weight: bold;
 	font-family: "TH SarabunPSK", sans-serif;
-}  
-/*  เมนูเมื่อเมาส์ over*/  
-.css_menu:hover{  
-    position:relative;  
-    display:block;  
-    float:left;  
-    width:435px;  
-    height:25px;  
-    background-color:#CCC;  
-    color:#000;   
-}  
-/*  เมนูเมื่อ active*/  
-.css_menu_active{  
-    position:relative;  
-    display:block;  
-    float:left;  
-    width:435px;  
-    height:25px;  
-    background-color:#CCC;  
-    color:#000;   
-    text-align:center;  
-    text-decoration:underline;  
-    line-height:25px;  
-    margin-right:2px;  
-} 
+}
+/*  เมนูเมื่อเมาส์ over*/
+.css_menu:hover{
+    position:relative;
+    display:block;
+    float:left;
+    width:435px;
+    height:25px;
+    background-color:#CCC;
+    color:#000;
+}
+/*  เมนูเมื่อ active*/
+.css_menu_active{
+    position:relative;
+    display:block;
+    float:left;
+    width:435px;
+    height:25px;
+    background-color:#CCC;
+    color:#000;
+    text-align:center;
+    text-decoration:underline;
+    line-height:25px;
+    margin-right:2px;
+}
 a:link {
 	color: #333;
 	text-decoration: none;
@@ -149,9 +151,9 @@ a:active {
 <table width="1120" border="0" align="center" cellpadding="0" cellspacing="0">
   <tr valign="top">
     <td colspan="4">
-   <?php 
+   <?php
 	require_once("scriptmenu.php");
-	?>   
+	?>
  <!-- End Menu ----------------------------------->
     </td>
 </table>
@@ -174,9 +176,9 @@ a:active {
   </td>
   <td rowspan="2" align="left" valign="top" background="images/baseBG.png" >
 <a href="dep_civil_affair.php">Home</a> >
-<a href="dep_civil_affair-1.php">แผนกสนับสนุนสถาบันหลักของชาติ</a> >  
+<a href="dep_civil_affair-1.php">แผนกสนับสนุนสถาบันหลักของชาติ</a> >
 <a href="dep_civil_affair-2.php">แผนกปฏิบัติการกิจการพลเรือน</a> >
-<a href="dep_civil_affair-3.php">แผนกการเมืองและการปกครอง</a> > 
+<a href="dep_civil_affair-3.php">แผนกการเมืองและการปกครอง</a> >
 <a href="dep_civil_affair-4.php">แผนกกิจกรรมพิเศษ</a>
 <br />
 <p align="center"><span class="style25">กองกิจการพลเรือน <br />(กกร.สกร.กร.ทบ.)</span>
@@ -186,7 +188,7 @@ a:active {
     <p><span class="style18">การจัดกิจกรรมเทิดพระเกียรติ  การทำนุบำรุง ศาสนา การแก้ปัญหาสำคัญเร่งด่วนของชาติตามที่กองทัพบกได้รับมอบ </span></p>
     <p align="center"><strong><u><span class="style18">การจัดหน่วย</span></u></strong></p>
     <p align="center"><img src="/images/depcivil/chart.PNG" width="100%" height="100%" border="0" /></p>
-  
+
   </td>
   </tr>
 <tr>
