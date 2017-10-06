@@ -5,7 +5,7 @@
   <?php
   require_once("callconnectionimproved.php");
   require_once("utils.php");
-  $perpage = 1; //จำนวนเนื้อหาต่อหน้า
+  $perpage = 9; //จำนวนเนื้อหาต่อหน้า
   if (isset($_GET['page'])) {
     $page = $_GET['page'];
   } else {
@@ -27,7 +27,7 @@
         <div class="single-blog-item">
           <div class="blog-thumbnail">
             <?php if($objResult["act_imagetitle"] == ''){
-              echo '<a href="gallerys.php?Rid='.$objResult["act_id"].'"><img src="http://placehold.it/460x350/c948ab/ffffff&text=DOCA" alt="blog-img"></a>';
+              echo '<a href="gallerys.php?Rid='.$objResult["act_id"].'"><img src="images/gallery-tmp.png" alt="blog-img"></a>';
             }  else {
               echo '<a href="gallerys.php?Rid='.$objResult["act_id"].'"><img src="'.$objResult["act_imagetitle"].'" alt="blog-img"></a>';
             }?>

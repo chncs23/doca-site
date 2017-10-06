@@ -1,13 +1,15 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+	  <link rel="shortcut icon" href="favicon.ico" />
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<link rel="stylesheet" type="text/css" href="css/dropmenu.css" />
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="bootstrap/js/bootstrap.js"></script>
+	<link href="https://fonts.googleapis.com/css?family=Taviraj:300,500"
 	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
 	<link rel="stylesheet" type="text/css" href="css/all-news.css" />
-
+<link rel="stylesheet" type="text/css" href="css/layout.css" />
 	<title>ข่าวทั้งหมด</title>
 </head>
 
@@ -18,7 +20,10 @@
 		?>
 	</nav>
 
-	<img src="images/DocaBanner.png" />
+	<div class="container nopadding-horizontal">
+		<img src="images/DocaBanner.png" width=100%/>
+	</div>
+
 	<div id="content" class="container">
 		<div class="page-header">
 			<h1>ข่าวทั้งหมด</h1>
