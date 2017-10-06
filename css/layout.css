@@ -6,12 +6,19 @@ body {
 	background-size:100%;
 }
 
+
+
+b {
+	font-weight: 500 !important;
+}
+
 .panel-heading {
 	background-color: #fbcfea !important;
 }
 
 .panel-title {
 	color: #000000 !important;
+	font-weight: 500 !important;
 }
 
 .container {
@@ -60,6 +67,11 @@ body {
 .center {
 	margin: auto;
 	padding: 5px;
+}
+
+.nopadding-horizontal {
+	padding-left: 0 !important;
+	padding-right: 0 !important;
 }
 
 .nopadding-right {
@@ -113,4 +125,5 @@ a{
   width: 100%;
   height: auto;
   background-color: #fbcfea;
+	text-align: center;
 }
