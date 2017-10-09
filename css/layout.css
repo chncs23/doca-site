@@ -25,6 +25,11 @@ b {
 	background:#FFFFFF;
 }
 
+.content-padding {
+	padding-left: 30px;
+	padding-right: 30px;
+}
+
 #doca-logo {
 	display:block;
 	margin: auto;
