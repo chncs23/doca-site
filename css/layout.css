@@ -6,10 +6,16 @@ body {
 	background-size:100%;
 }
 
+h1, h2, h3 {
+	font-weight: 600 !important;
+}
 
+h4, h5, h6 {
+	font-weight: 500 !important;
+}
 
 b {
-	font-weight: 500 !important;
+	font-weight: 600 !important;
 }
 
 .panel-heading {
@@ -18,7 +24,7 @@ b {
 
 .panel-title {
 	color: #000000 !important;
-	font-weight: 500 !important;
+	font-weight: 600 !important;
 }
 
 .container {
@@ -28,6 +34,14 @@ b {
 .content-padding {
 	padding-left: 30px;
 	padding-right: 30px;
+}
+
+.row-margin-top {
+  margin-top : 20px;
+}
+
+.content {
+	line-height: 30px;
 }
 
 #doca-logo {

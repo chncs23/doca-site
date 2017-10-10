@@ -1,4 +1,4 @@
-  <link href="https://fonts.googleapis.com/css?family=Taviraj:400,500" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Taviraj:400,500,600" rel="stylesheet">
 
 <style>
 
