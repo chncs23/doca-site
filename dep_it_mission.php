@@ -122,8 +122,8 @@ body {
 <table width="1120" border="0" align="center" cellpadding="0" cellspacing="10">
 <tr>
   <td width="250" height="300" align="center" background="images/baseBG.png"><p><span class="style18">ผู้บังคับบัญชา</strong><br>
-    <img src="images/director_it.jpg" width="175" height="215" vspace="0" border="0" /><br>
-    พ.อ.กิตติวัฒน์  แจ่มจิรารักษ์<br>
+    <img src="images/director_administrator.nopasin.png" width="175" height="215" vspace="0" border="0" /><br>
+    พ.อ.นภสินธุ์ อุบล<br>
     ผอ.กสท.กร.ทบ. </span></p>
   </td>
   <td width="580" rowspan="2" align="left" valign="top" background="images/baseBG.png">
@@ -141,6 +141,7 @@ function active_menu($link_chk,$default_active=0){
 <a class="css_menu<?=active_menu("/dep_it.php?menu=2",1)?>" href="dep_it_mission.php">ภารกิจหน่วย</a>
 <br>
 <p class="style18">
+<br />
 1. วางแผนอำนวยการ ประสานงานกำกับดูแลและดำเนินการที่เกี่ยวข้องกับสารสนเทศ ด้านกิจการพลเรือน ของกองทัพบก<br />
 2. วิเคราะห์และพัฒนาระบบสารสนเทศ ด้านกิจการพลเรือน <br />
 3. รวบรวมข้อมูลและผลิตสารสนเทศด้านกิจการพลเรือน <br />

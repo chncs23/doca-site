@@ -112,7 +112,7 @@ body {
 <tr>
   <td width="250" height="300" align="center" background="images/baseBG.png"><p><span class="style18">ผู้บังคับบัญชา</strong><br>
     <img src="images/director_planning.jpg" width="175" height="215" vspace="0" border="0" /><br>
-    พ.อ. ศุภสิทธิ์ ชิตท้วม<br>
+    พ.อ.ชวลิต เอี่ยมแทน<br>
     ผอ.กนผ.กร.ทบ. </span></p>
   </td>
   <td width="580" rowspan="2" align="left" valign="top" background="images/baseBG.png">

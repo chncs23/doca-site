@@ -37,18 +37,18 @@
 			</div>
 		</div>
 
-		<div class="row row-margin-top">
-				<div class="col-md-4" align="center">
+		<div class="row">
+				<div class="col-md-4  row-margin-top" align="center">
 					<img src="images/doca_commander/commander4_Somsak.png" alt="พล.ต.สมศักดิ์ สมรักษ์" width="200" height="250" />
 					<br><br>
 					<span class="style18">พล.ต.สมศักดิ์ สมรักษ์<br>รอง จก.กร.ทบ.</span>
 				</div>
-				<div class="col-md-4" align="center">
-					<img src="images/doca_commander/commander3_ChanChai.png" alt="พล.ต.สมศักดิ์ สมรักษ์" width="200" height="250" />
+				<div class="col-md-4  row-margin-top" align="center">
+					<img src="images/doca_commander/commander3_Nirandorn.png" alt="พล.ต.นิรันดร ศรีคชา" width="200" height="250" />
 					<br><br>
-					<span class="style18">พล.ต.ชาญชัย นพวงศ์<br>ผอ.สกร.กร.ทบ.</span>
+					<span class="style18">พล.ต.นิรันดร ศรีคชา<br>ผอ.สกร.กร.ทบ.</span>
 				</div>
-				<div class="col-md-4" align="center">
+				<div class="col-md-4  row-margin-top" align="center">
 					<img src="images/doca_commander/commander5_Piset.png" alt="พล.ต.สมศักดิ์ สมรักษ์" width="200" height="250" />
 					<br><br>
 					<span class="style18">พล.ต.พิเศษ ศิริเกษม<br>ผอ.สจว.กร.ทบ.</span>

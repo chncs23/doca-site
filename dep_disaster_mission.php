@@ -123,7 +123,7 @@ body {
 <tr>
   <td width="250" height="300" align="center" background="images/baseBG.png"><p><span class="style18">ผู้บังคับบัญชา</strong><br>
     <img src="images/director_disaster.jpg" width="175" height="215" vspace="0" border="0" /><br>
-    พ.อ. สุพล จันทร์ผ่อง<br />
+    พ.อ.ปุณณพงษ์ ชุวัสวัตพัทธ์<br />
 ผอ.กบภ.สกร.กร.ทบ.</span></p>
   </td>
   <td width="580" rowspan="2" align="left" valign="top" background="images/baseBG.png">

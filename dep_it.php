@@ -110,8 +110,8 @@ body {
 <table width="1120" border="0" align="center" cellpadding="0" cellspacing="10">
 <tr>
   <td width="250" height="300" align="center" background="images/baseBG.png"><p><span class="style18">ผู้บังคับบัญชา</strong><br>
-    <img src="images/director_it.jpg" width="175" height="215" vspace="0" border="0" /><br>
-    พ.อ.กิตติวัฒน์  แจ่มจิรารักษ์<br>
+    <img src="images/director_administrator.nopasin.png" width="175" height="215" vspace="0" border="0" /><br>
+    พ.อ.นภสินธุ์ อุบล<br>
     ผอ.กสท.กร.ทบ. </span></p>
   </td>
   <td width="580" rowspan="2" align="left" valign="top" background="images/baseBG.png">

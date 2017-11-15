@@ -127,7 +127,7 @@ a:active {
 <tr>
   <td width="250" height="300" align="center" background="images/baseBG.png"><p><span class="style18">ผู้บังคับบัญชา</strong><br>
     <img src="images/director_civil_affair.jpg" width="175" height="215" vspace="0" border="0" /><br>
-    พ.อ.ชวลิต เอี่ยมแทน<br>
+    พ.อ.ณัฐวัฒน์ จันทร์เจริญ<br>
     ผอ.กกร.สกร.กร.ทบ.</span></p>
   </td>
   <td rowspan="2" align="left" valign="top" background="images/baseBG.png" >
