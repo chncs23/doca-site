@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<style>	
+<style>
 .style16 {font-size: 16pt; font-weight: bold; font-family: "TH SarabunPSK", sans-serif; }
 .style18 {font-size: 18pt; font-weight: bold; font-family: "TH SarabunPSK", sans-serif; }
 .style22 {font-size: 22pt; font-weight: bold; font-family: "TH SarabunPSK", sans-serif; }
@@ -14,7 +14,7 @@ body {
 	margin-right: 0px;
 	margin-bottom: 0px;
 }
-	
+
 
 </style>
 
@@ -24,13 +24,13 @@ body {
     <tr>
         <td width="100%" align="center"><p><span class="style22">ทะเบียนรับ</span></p>
           <form action="" method="post">
-            <table width="100%" border="0" cellspacing="10" cellpadding="0" >  
+            <table width="100%" border="0" cellspacing="10" cellpadding="0" >
           <tr>
             <td width="150" align="right"><span class="style18">ที่หนังสือ:</span></td>
             <td width="400"><input type="text" name="receive_number" id="receive_number" size="25"></td>
           </tr>
           <tr>
-            <td width="150" align="right"><span class="style18">ลงวันที่ :</span></td> 
+            <td width="150" align="right"><span class="style18">ลงวันที่ :</span></td>
             <td width="400"><input type="text" name="receive_recdate" id="receive_recdate" size="25"></td>
           </tr>
           <tr>
@@ -59,28 +59,28 @@ body {
         </table>
     </form>
     <?php
-            require_once("callconnection.php");
-            
+            require_once("callconnectionimproved.php");
+
             if($_POST)
             {
-                                
+
                 $strSQL = "INSERT INTO record_receive";
                 $strSQL .="(receive_number,receive_recdate,receive_from,receive_topic,receive_action,receive_remark)";
                 $strSQL .="VALUES";
                 $strSQL .="('".$_POST["receive_number"]."','".$_POST["receive_recdate"]."','".$_POST["receive_from"]."','".$_POST["receive_topic"]."','".$_POST["receive_action"]."','".$_POST["receive_remark"]."')";
-                $objQuery = mysql_query($strSQL);
-                    
+                $objQuery = mysqli_query($conn, $strSQL);
+
                 if($objQuery)
                     { // Message Box.
                       ?>
                         <script language="javascript">alert("..Saved.."); location.href="?";</script>
                       <?
-                    } 
-					          
+                    }
+
             }
     ?>
       </td>
-    </tr>  
+    </tr>
     </table>
 <body>
 </body>

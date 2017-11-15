@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<style>	
+<style>
 .style16 {font-size: 16pt; font-weight: bold; font-family: "TH SarabunPSK", sans-serif; }
 .style18 {font-size: 18pt; font-weight: bold; font-family: "TH SarabunPSK", sans-serif; }
 .style22 {font-size: 22pt; font-weight: bold; font-family: "TH SarabunPSK", sans-serif; }
@@ -14,7 +14,7 @@ body {
 	margin-right: 0px;
 	margin-bottom: 0px;
 }
-	
+
 
 </style>
 
@@ -24,13 +24,13 @@ body {
     <tr>
         <td width="100%" align="center"><p><span class="style22">ทะเบียนส่ง</span></p>
           <form action="" method="post">
-            <table width="100%" border="0" cellspacing="10" cellpadding="0" >  
+            <table width="100%" border="0" cellspacing="10" cellpadding="0" >
           <tr>
             <td width="150" align="right"><span class="style18">ที่หนังสือ:</span></td>
             <td width="400"><input type="text" value="0405.4/" name="send_number" id="send_number" size="25"></td>
           </tr>
           <tr>
-            <td width="150" align="right"><span class="style18">ลงวันที่ :</span></td> 
+            <td width="150" align="right"><span class="style18">ลงวันที่ :</span></td>
             <td width="400"><input type="text" name="send_recdate" id="send_recdate" size="25"></td>
           </tr>
           <tr>
@@ -59,31 +59,31 @@ body {
         </table>
     </form>
     <?php
-            require_once("callconnection.php");
-            
+            require_once("callconnectionimproved.php");
+
             if($_POST)
             {
-                                
+
                 $strSQL = "INSERT INTO record_send";
                 $strSQL .="(send_number,send_recdate,send_to,send_topic,send_action,send_remark)";
                 $strSQL .="VALUES";
                 $strSQL .="('".$_POST["send_number"]."','".$_POST["send_recdate"]."','".$_POST["send_to"]."','".$_POST["send_topic"]."','".$_POST["send_action"]."','".$_POST["send_remark"]."')";
-				
-                $objQuery = mysql_query($strSQL);
+
+                $objQuery = mysqli_query($conn, $strSQL);
 
                 if($objQuery)
-				
-				
+
+
                     { // Message Box.
                       ?>
                         <script language="javascript">alert("..Saved.."); location.href="?";</script>
                       <?
-                    } 
-					          
+                    }
+
             }
     ?>
       </td>
-    </tr>  
+    </tr>
     </table>
 <body>
 </body>
