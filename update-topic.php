@@ -1,5 +1,9 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
 <?php
-
 require_once("callconnectionimproved.php");
 
 if(filesize($_FILES["coverPhoto"]["tmp_name"]) > 0) {
@@ -7,9 +11,6 @@ if(filesize($_FILES["coverPhoto"]["tmp_name"]) > 0) {
 }else{
 	$coverPhotoFileName = NULL;
 }
-
-$title = $_POST["title"] ?? '';
-$message = $_POST["editor1"] ?? '';
 
 if(empty($_FILES["galleryImage"]["tmp_name"][0])){
 	updateNews($conn);
@@ -69,36 +70,38 @@ function uploadMultipleImage($sqlConnection, $galleryFolder, $imgFiles, $actId) 
 			}
 			move_uploaded_file($imgFiles["tmp_name"][$i], "$galleryFolder".$imgFiles["name"][$i]);
 
-		}} else{
-			echo "Error: " . $insertGalleryPath . "<br>" . $sqlConnection->error;
-			exit();
 		}
+	} else{
+		echo "Error: " . $insertGalleryPath . "<br>" . $sqlConnection->error;
+		exit();
 	}
+}
 
-	function checkImageFormat($file) {
-		$info = getimagesize($file);
+function checkImageFormat($file) {
+	$info = getimagesize($file);
 
-		if (($info[2] !== IMAGETYPE_GIF) && ($info[2] !== IMAGETYPE_JPEG) && ($info[2] !== IMAGETYPE_PNG)) {
-			alert("ต้องเป็นไฟล์รูปเท่านั้น");
-			exit();
+	if (($info[2] !== IMAGETYPE_GIF) && ($info[2] !== IMAGETYPE_JPEG) && ($info[2] !== IMAGETYPE_PNG)) {
+		alert("ต้องเป็นไฟล์รูปเท่านั้น");
+		exit();
+	}
+}
+
+function updateNews($conn) {
+	if($_POST) {
+		$strSQL = "UPDATE activity SET ";
+		$strSQL .="act_topic = '".$_POST["topic"]."' ";
+		$strSQL .=",act_details = '".$_POST["editor1"]."' ";
+		if(!empty($_FILES["coverPhoto"]["tmp_name"])){
+			$strSQL .=",act_imagetitle = 'Slideimages/".$_FILES["coverPhoto"]["name"]."' ";
 		}
-	}
+		$strSQL .=",act_imagedir = 'images/".$_POST["topic-id"]."' ";
+		$strSQL .=",act_vdopath = '".$_POST["vdo_path"]."' ";
+		$strSQL .=",act_filepath = '".$_POST["file_path"]."' ";
+		$strSQL .=",act_enable = '".$_POST["act_status"]."' ";
 
-	function updateNews($conn) {
-		if($_POST) {
-			$strSQL = "UPDATE activity SET ";
-			$strSQL .="act_topic = '".$_POST["topic"]."' ";
-			$strSQL .=",act_details = '".$_POST["editor1"]."' ";
-			if(!empty($_FILES["coverPhoto"]["tmp_name"])){
-				$strSQL .=",act_imagetitle = 'Slideimages/".$_FILES["coverPhoto"]["name"]."' ";
-			}
-			$strSQL .=",act_imagedir = 'images/".$_POST["topic-id"]."' ";
-			$strSQL .=",act_vdopath = '".$_POST["vdo_path"]."' ";
-			$strSQL .=",act_filepath = '".$_POST["file_path"]."' ";
-			$strSQL .=",act_enable = '".$_POST["act_status"]."' ";
-
-			$strSQL .="WHERE act_id like '%".$_POST["topic-id"]."%'";
-			$objQuery1 = mysqli_query($conn, $strSQL);
-		}
+		$strSQL .="WHERE act_id like '%".$_POST["topic-id"]."%'";
+		$objQuery1 = mysqli_query($conn, $strSQL);
 	}
-	?>
+}
+?>
+</html>
