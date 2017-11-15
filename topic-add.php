@@ -106,9 +106,6 @@ if(isset($_POST["update"])) {
 		$coverPhotoFileName = NULL;
 	}
 
-	$title = $_POST["title"] ?? '';
-	$message = $_POST["editor1"] ?? '';
-
 	if(empty($_FILES["galleryImage"]["tmp_name"][0])){
 		addNews($conn, $lastestActivityId);
 	}else{
@@ -152,8 +149,10 @@ function uploadCoverImage($image){
 		alert("Sorry, your file was not uploaded.");
 		exit();
 	} else {
-		if (!move_uploaded_file($image["tmp_name"], $coverPhotoPath)) {
-			alert("Sorry, there was an error uploading your file.");
+		try {
+			move_uploaded_file($image["tmp_name"], $coverPhotoPath);
+		} catch(Exception $e) {
+			alert($e->getMessage());
 			exit();
 		}
 	}
@@ -192,7 +191,7 @@ function checkImageFormat($file) {
 
 function addNews($sqlConnection, $act_id){
 	$insertNewsQuery = "INSERT INTO activity";
-	$insertNewsQuery .="(act_topic,act_details,act_imagetitle,act_imagedir,act_vdopath,act_filepath,act_enable)";
+	$insertNewsQuery .="(act_topic,act_details,act_imagetitle,act_imagedir,act_vdopath,act_filepath,act_enable,create_time)";
 	$insertNewsQuery .="VALUES";
 	$insertNewsQuery .="('".$_POST["topic"]."',";
 	$insertNewsQuery .="'".$_POST["editor1"]."',";
@@ -204,7 +203,8 @@ function addNews($sqlConnection, $act_id){
 	}
 	$insertNewsQuery .="'".$_POST["vdo_path"]."',";
 	$insertNewsQuery .="'".$_POST["file_path"]."',";
-	$insertNewsQuery .="'".$_POST["status"]."')";
+	$insertNewsQuery .="'".$_POST["status"]."',";
+	$insertNewsQuery .="now())";
 	if (!$sqlConnection->query($insertNewsQuery) === TRUE) {
 		alert("ผิดพลาด: " . $insertNewsQuery . "<br>" . $sqlConnection->error);
 		exit();

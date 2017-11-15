@@ -79,7 +79,7 @@ HTML;
 					echo $tablehead;
 					while($objResult = mysqli_fetch_assoc($objQuery)) {
 							$act_id 	 = $objResult['act_id'];
-							$act_date 	 = $objResult['act_date'];
+							$act_date 	 = $objResult['create_time'];
 							$act_topic = $objResult['act_topic'];
 							$act_status  = $objResult['act_enable'];
 					$tablerow = <<<HTML
