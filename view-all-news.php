@@ -3,6 +3,7 @@
 <head>
 	  <link rel="shortcut icon" href="favicon.ico" />
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" type="text/css" href="css/dropmenu.css" />
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="bootstrap/js/bootstrap.js"></script>
@@ -16,6 +17,9 @@
 <body>
 	<nav>
 		<?php
+		ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 		require_once("scriptmenu.php");
 		?>
 	</nav>
@@ -32,6 +36,7 @@
 		<ul class="nav nav-tabs">
 			<li class="active"><a data-toggle="tab" href="#activity">ข่าวกิจกรรม</a></li>
 			<li><a data-toggle="tab" href="#announcement">ข่าวประชาสัมพันธ์</a></li>
+			<li><a data-toggle="tab" href="#procurement">ประกาศจัดซื้อจัดจ้าง</a></li>
 		</ul>
 
 		<div class="tab-content">
@@ -41,6 +46,10 @@
 
 			<div id="announcement" class="tab-pane fade">
 				<?php include("all-announcement.php"); ?>
+			</div>
+
+			<div id="procurement" class="tab-pane fade">
+				<?php include("all-procurement.php"); ?>
 			</div>
 		</div>
 
