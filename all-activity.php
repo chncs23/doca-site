@@ -38,11 +38,11 @@
               <?php echo $objResult["act_topic"];?>
             </a>
             &nbsp;&nbsp;
-            <?php if(time_diff_today($objResult["act_date"], time()) <= 3) {
+            <?php if(time_diff_today($objResult["create_time"], time()) <= 3) {
               echo '<span class="label label-danger">new</span>';
             }?>
           </div>
-          <span class="blog-date"><?php echo $objResult["act_date"];?></span>
+          <span class="blog-date"><?php echo $objResult["create_time"];?></span>
         </div>
       </div>
 
