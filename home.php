@@ -28,21 +28,21 @@
   <div class="container-fluid" id="doca-header">
     <div class="row">
       <div class="col-md-3 center">
-        <img id="doca-logo" src="images/doca-with-name.png" alt="กรมกิจการพลเรือนทหารบก" padding="10px">
+        <img id="doca-logo" src="images/doca-with-name.png" alt="กรมกิจการพลเรือนทหารบก" padding="10px" class="img-responsive">
       </div>
       <div class="col-md-6">
         <!-- carousel -->
         <?php include("home-carousel.php") ?>
       </div>
       <div class="col-md-3 center">
-        <img id="motto" src="images/motto-with-quote.png" alt="รู้ความต้องการทางทหาร ชำนาญประสานพลเรือน" padding="10px">
+        <img id="motto" src="images/motto-with-quote.png" alt="รู้ความต้องการทางทหาร ชำนาญประสานพลเรือน" padding="10px" class="img-responsive">
       </div>
     </div>
   </div>
 
   <div class="container">
     <div class="row">
-      <div class="col-md-3 nopadding-right">
+      <div class="col-md-3">
         <div class="center">
           <img id="commander" src="images/doca_commander/commander2_Thanes-250px.png" alt="กรมกิจการพลเรือนทหารบก" width="100%">
           <h4 align="center">พล.ท.ธเนศ กาลพฤกษ์</h4>
@@ -131,6 +131,7 @@
               <ul class="nav nav-tabs">
                 <li class="active"><a data-toggle="tab" href="#activity">ข่าวกิจกรรม</a></li>
                 <li><a data-toggle="tab" href="#announcement">ข่าวประชาสัมพันธ์</a></li>
+                <li><a data-toggle="tab" href="#procurement">ประกาศจัดซื้อจัดจ้าง</a></li>
               </ul>
 
               <div class="tab-content">
@@ -157,7 +158,7 @@
                         echo '</a>';
                         echo '&nbsp;&nbsp;';
 
-                        if(time_diff_today($objResult["act_date"]) <= 3){
+                        if(time_diff_today($objResult["create_time"]) <= 3){
                           echo '<span class="label label-danger">new</span>';
                         }
 
@@ -196,6 +197,40 @@
                         echo '</a>';
                         echo "&nbsp;&nbsp;";
                         if(time_diff_today($objResult["ann_date"]) <= 3){
+                          echo '<span class="label label-danger">new</span>';
+                        }
+
+                        echo '</p>';
+                      }
+                      $count+=1;
+                    }
+                    ?>
+                    <a class="btn btn-default button-right" href="view-all-news.php">ดูประกาศทั้งหมด</a>
+                  </div>
+                </div>
+
+                <div id="procurement" class="tab-pane fade">
+                  <div class="panel-body">
+                    <?php
+                    require_once("callconnectionimproved.php");
+
+                    $strSQL = "SELECT * FROM procurement WHERE pcm_id != '' and 	pcm_status='y' order by pcm_id desc";
+                    $objQuery = mysqli_query($conn, $strSQL) or die ("Error Query [".$strSQL."]");
+                    $total=mysqli_num_rows($objQuery);
+
+                    if($total>0)
+                    {
+                      $count;
+                      while ($objResult=mysqli_fetch_array($objQuery))
+                      {
+                        echo '<p class="left">';
+                        echo '<img src="images/bullet.jpg" alt="" width="10" height="10" border="0" class="style18" />';
+                        echo "&nbsp;&nbsp;";
+                        echo '<a href="'.$objResult["pcm_doc"].'" target="_blank">';
+                        echo $objResult["pcm_topic"];
+                        echo '</a>';
+                        echo "&nbsp;&nbsp;";
+                        if(time_diff_today($objResult["pcm_date"]) <= 3){
                           echo '<span class="label label-danger">new</span>';
                         }
 
@@ -262,7 +297,7 @@
                 <?php
                 require_once("callconnectionimproved.php");
 
-                $strSQL = "SELECT * FROM journal WHERE journal_id != '' AND journal_img = '' order by journal_id DESC LIMIT 12";
+                $strSQL = "SELECT * FROM journal WHERE journal_id != '' AND journal_img = '' OR journal_img IS NULL order by journal_id DESC LIMIT 12";
                 $objQuery = mysqli_query($conn, $strSQL) or die ("Error Query [".$strSQL."]");
                 $total=mysqli_num_rows($objQuery);
 
@@ -271,15 +306,13 @@
                   $count;
                   while ($objResult=mysqli_fetch_array($objQuery))
                   {
-                    //echo '<li>';
+                    echo '<p class="left">';
                     echo '<img src="images/bullet.jpg" alt="" width="10" height="10" border="0" class="style18" />';
                     echo '&nbsp;&nbsp;';
                     echo '<a href="'.$objResult["journal_path"].'" target="_blank">';
                     echo $objResult["journal_topic"];
                     echo '</a>';
-                    //echo '<img src="images/icon_new2.gif" alt="" width="22" height="15" border="0" />';
-                    echo '</br>';
-                    //echo '</li>';
+                    echo '</p>';
                   }
                   $count+=1;
                 }
