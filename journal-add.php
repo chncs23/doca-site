@@ -89,6 +89,10 @@ function preview_cover() {
 		}
 		return true;
 	}
+
+	function alert($msg) {
+		echo "<script type='text/javascript'>alert('$msg');</script>";
+	}
 	?>
 <body>
 </body>

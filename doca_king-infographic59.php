@@ -4,18 +4,20 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="bootstrap/js/bootstrap.js"></script>
+<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
 <link rel="stylesheet" type="text/css" href="css/layout.css" />
 <link rel="stylesheet" type="text/css" href="css/style2.css" />
-<link rel="stylesheet" type="text/css" href="css/dropmenu.css" />
-      
-</script>  
-<!-- Script Silde Image-->   
+
+</script>
+<!-- Script Silde Image-->
 <script language="javascript" type="text/javascript" src="js/jquery.js"></script>
 <script language="javascript" type="text/javascript" src="js/jquery.easing.js"></script>
 <script language="javascript" type="text/javascript" src="js/script.js"></script>
-<style>	
+<style>
 	ul.lof-main-wapper li {
-		position:relative;	
+		position:relative;
 	}
 .style18 {font-size: 16pt; font-weight: ; font-family: "TH SarabunPSK", sans-serif; }
 .style22 {font-size: 22pt; font-weight: bold; font-family: "TH SarabunPSK", sans-serif; }
@@ -27,51 +29,51 @@ body {
 	margin-right: 0px;
 	margin-bottom: 0px;
 }
-	
+
 
 </style>
 
 
-  <!-- ------------------------------------------------------test Menu--> 
-<style type="text/css">  
-/* เมนูปกติ */  
-.css_menu{  
-    position:relative;  
-    display:block;  
-    float:left;  
-    width:200px;  
-    height:25px;  
-    background-color:#333;  
-    color: #FFF;   
-    text-align:center;  
-    text-decoration:none;  
-    line-height:25px;  
-    margin-right:2px;  
-}  
-/*  เมนูเมื่อเมาส์ over*/  
-.css_menu:hover{  
-    position:relative;  
-    display:block;  
-    float:left;  
-    width:200px;  
-    height:25px;  
-    background-color:#CCC;  
-    color:#000;   
-}  
-/*  เมนูเมื่อ active*/  
-.css_menu_active{  
-    position:relative;  
-    display:block;  
-    float:left;  
-    width:200px;  
-    height:25px;  
-    background-color:#CCC;  
-    color:#000;   
-    text-align:center;  
-    text-decoration:underline;  
-    line-height:25px;  
-    margin-right:2px;  
-} 
+  <!-- ------------------------------------------------------test Menu-->
+<style type="text/css">
+/* เมนูปกติ */
+.css_menu{
+    position:relative;
+    display:block;
+    float:left;
+    width:200px;
+    height:25px;
+    background-color:#333;
+    color: #FFF;
+    text-align:center;
+    text-decoration:none;
+    line-height:25px;
+    margin-right:2px;
+}
+/*  เมนูเมื่อเมาส์ over*/
+.css_menu:hover{
+    position:relative;
+    display:block;
+    float:left;
+    width:200px;
+    height:25px;
+    background-color:#CCC;
+    color:#000;
+}
+/*  เมนูเมื่อ active*/
+.css_menu_active{
+    position:relative;
+    display:block;
+    float:left;
+    width:200px;
+    height:25px;
+    background-color:#CCC;
+    color:#000;
+    text-align:center;
+    text-decoration:underline;
+    line-height:25px;
+    margin-right:2px;
+}
 a:link {
 	text-decoration: none;
 }
@@ -101,9 +103,9 @@ a:active {
 <table width="1120" border="0" align="center" cellpadding="0" cellspacing="0">
   <tr valign="top">
     <td colspan="4">
-   <?php 
+   <?php
 	require_once("scriptmenu.php");
-	?>   
+	?>
  <!-- End Menu ----------------------------------->
     </td>
 </table>
@@ -114,29 +116,29 @@ a:active {
 </table>
 <table width="1120" border="0" align="center" cellpadding="0" cellspacing="10">
   <tr>
-  <td width="250" height="300" align="center" valign="top" background="images/baseBG.png"><p>  
-    <p><span class="style18"><a href="http://doca.rta.mi.th/doca_king.php">สารคดีเทิดพระเกียรติ "บันทึกงานของในหลวง - 32 ตอน"</a></span>    
-    <p><span class="style18"><img src="images/seperater1.png" alt="" width="150" height="10" /></span>    
+  <td width="250" height="300" align="center" valign="top" background="images/baseBG.png"><p>
+    <p><span class="style18"><a href="http://doca.rta.mi.th/doca_king.php">สารคดีเทิดพระเกียรติ "บันทึกงานของในหลวง - 32 ตอน"</a></span>
+    <p><span class="style18"><img src="images/seperater1.png" alt="" width="150" height="10" /></span>
       <p><span class="style18"><a href="http://doca.rta.mi.th/doca_king-clipvdo59.php">ผลงานประกวดคลิบวีดีโอสั้น และ Infographic เทิดทูนพระบาทสมเด็จพระเจ้าอยู่หัว ประจำปี 2558</a></span>
-       <p><span class="style18"><img src="images/seperater1.png" alt="" width="150" height="10" /></span>    
-    <p><span class="style18"><a href="http://doca.rta.mi.th/doca_king-100yr-sansern.php">สรรเสริญพระบารมี ๑๐๐ ปีร่วมร้อยใจไทย</a></span>    
+       <p><span class="style18"><img src="images/seperater1.png" alt="" width="150" height="10" /></span>
+    <p><span class="style18"><a href="http://doca.rta.mi.th/doca_king-100yr-sansern.php">สรรเสริญพระบารมี ๑๐๐ ปีร่วมร้อยใจไทย</a></span>
     <p><span class="style18"><img src="images/seperater1.png" alt="" width="150" height="10" /></span>
     <p><span class="style18"><a href="http://doca.rta.mi.th/doca_king-song.php">บทเพลงเทิดพระเกียรติ</a></span></p>
-    <p>    
+    <p>
     </td>
   <td align="left" valign="top" background="images/baseBG.png">
-    <?php  
-// ฟังก์ชั่นอย่างง่ายใช้ทดสอบ หน้าปัจจุบัน  
-function active_menu($link_chk,$default_active=0){  
-    if($default_active==1){  
-        return ($_SERVER['REQUEST_URI']==$link_chk || $_SERVER['QUERY_STRING']=="")?"_active":"";  
-    }else{  
-        return ($_SERVER['REQUEST_URI']==$link_chk)?"_active":"";  
-    }  
-}  
-?>  
+    <?php
+// ฟังก์ชั่นอย่างง่ายใช้ทดสอบ หน้าปัจจุบัน
+function active_menu($link_chk,$default_active=0){
+    if($default_active==1){
+        return ($_SERVER['REQUEST_URI']==$link_chk || $_SERVER['QUERY_STRING']=="")?"_active":"";
+    }else{
+        return ($_SERVER['REQUEST_URI']==$link_chk)?"_active":"";
+    }
+}
+?>
     <a class="css_menu<?=active_menu("/dep_it.php?menu=1")?>" href="doca_king-clipvdo59.php">ผลงานประกวดคลิบวีดีโอสั้น</a>
-    <a class="css_menu<?=active_menu("/dep_it.php?menu=2",1)?>" href="doca_king-infographic59.php">ผลงานประกวด Infographic</a>  
+    <a class="css_menu<?=active_menu("/dep_it.php?menu=2",1)?>" href="doca_king-infographic59.php">ผลงานประกวด Infographic</a>
     <br>
     <p class="style22"> ผลงานประกวด Infographic เทิดพระเกียรติพระบาทสมเด็จพระเจ้าอยู่หัวอันดับที่ 1  </p>
     <p class="style22"><span class="style18">ชื่อผลงาน </span>&quot; เย็นศิระเพราะพระบริบาร &quot;</p>
