@@ -51,7 +51,7 @@ b {
 	max-height: 80%;
 	position:relative;
 	top:50%; /* Move the image down, so its top is half way down the container */
-	margin-top:50px; /* Move the image back up half its height */
+	margin-top:5%; /* Move the image back up half its height */
 }
 
 #motto {
@@ -61,12 +61,13 @@ b {
 	max-height: 90%;
 	position:relative;
 	top:50%; /* Move the image down, so its top is half way down the container */
-	margin-top:100px; /* Move the image back up half its height */
+	margin-top:18%; /* Move the image back up half its height */
 }
 
 #commander {
 	display: block;
 	margin: auto;
+	padding-top: 15px;
 	padding-bottom: 15px;
 }
 
@@ -74,7 +75,6 @@ b {
 #doca-header {
 	background-image: url("../images/BG2.png");
 	background-position: center;
-	padding-top:  10px;
 	background-size:100%;
 	margin: auto;
 }
