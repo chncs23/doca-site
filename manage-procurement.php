@@ -158,7 +158,7 @@ HTML;
 
   $( document ).ready(function() {
       $('#pcm-edit-modal').on('show.bs.modal', function (e) { //Modal Event
-          var id = $(e.relatedTarget).data('id'); //Fetch id from modal trigger button
+          var id = $(e.relatedTarget).data('pcm_id'); //Fetch id from modal trigger button
       $.ajax({
         type : 'post',
          url : 'procurement-edit.php', //Here you will fetch records

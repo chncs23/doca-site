@@ -1,7 +1,7 @@
 <?php
 
 require_once("callconnectionimproved.php");
-$receiveid = $_GET['Sendid'];
+$receiveid = $_POST['Sendid'];
 
 $strSQL = "SELECT * FROM procurement WHERE pcm_id like '%".$receiveid."%'";
 $objQuery = mysqli_query($conn, $strSQL) or die ("Error Query [".$strSQL."]");

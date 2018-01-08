@@ -10,7 +10,7 @@
 	 $objQuery = mysqli_query($conn, $strSQL);
 	 if($objQuery)
 		 {
-			 alert("แก้ไขกิจกรรมสำเร็จ !!!");
+			 alert("แก้ไขสำเร็จ !!!");
 			 echo "<script>self.close();</script>";
        $conn->close();
 			 exit;
