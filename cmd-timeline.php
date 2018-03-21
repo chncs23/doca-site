@@ -1,24 +1,28 @@
 <html>
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
   <title>ตารางผู้บังคับบัญชา</title>
   <link rel="stylesheet" href="bootstrap4/css/bootstrap.min.css">
   <link href="https://fonts.googleapis.com/css?family=Trirong" rel="stylesheet">
-  <?php
+  <?
   include('thaidate.php');
   include('daycolor.php');
   ?>
 
   <style>
-  <?php $bgcolor=get_day_color(time()); ?>
+
+  <?
+  date_default_timezone_set("Asia/Bangkok");
+  $bgcolor=get_day_color(time());
+  ?>
 
   .container-fluid {
-    padding: 0;
+    padding: 0px;
   }
 
   .title {
     padding: 25px;
-    background-color:<?php echo $bgcolor; ?>;
+    background-color:<? echo $bgcolor; ?>;
   }
 
   .center {
@@ -30,7 +34,7 @@
   }
 
   .table {
-    font-size: 150%;
+    font-size: 120%;
   }
 
   @font-face {
@@ -49,59 +53,35 @@
 
       <div class="title">
         <h1 class="center">ตารางการปฏิบัติผู้บังคับบัญชา กร.ทบ.</h1>
-        <h2 class="center"><?php echo thai_date(time()); ?></h2>
+        <h2 class="center"><? echo thai_date(time()); ?></h2>
       </div>
+
+
 
 
     <table class="table">
       <tr>
-        <th style="width: 20">ผู้ปฏิบัติ</th>
-        <th style="width: 5%">เวลา</th>
-        <th style="width: 50%">รายการปฏิบัติ</th>
-        <th style="width: 25%">สถานที่</th>
+        <th style="width: 20" class="center">ผู้ปฏิบัติ</th>
+        <th style="width: 5%" class="center">เวลา</th>
+        <th style="width: 50%" class="center">รายการปฏิบัติ</th>
+        <th style="width: 25%" class="center">สถานที่</th>
       </tr>
 
-      <tr>
-        <td>จก.กร.ทบ.</td>
-        <td>0700</td>
-        <td>ร่วมคณะ พล.อ.ธีรชัยฯ ตรวจเยี่ยมโครงการอันเนื่องมาจากพระราชดำริพื้นที่ภาคใต้</td>
-        <td>จว.น.ศ.</td>
-      </tr>
+      <?php
+          $string = file_get_contents("http://gsx2json.com/api?id=15LyUbD-vAMDCtUuN6B4WqTqr7BIhrgyJyFNwMn3rnCU&sheet=1&integers=false&columns=false");
+          $json_decode = json_decode($string, true);
+          $cmd_data = $json_decode["rows"];
+          $json_count = count($cmd_data);
 
-      <tr>
-        <td>รอง จก.กร.ทบ.</td>
-        <td>0800</td>
-        <td>ร่วมพิธีเปิดฝึกอบรมโครงการจิตอาสาฯ หลักสูตรหลักประจำ รุ่นที่ 1</td>
-        <td>ร.1 รอ.</td>
-      </tr>
-
-      <tr>
-        <td>ผอ.สกร.กร.ทบ.</td>
-        <td>0830</td>
-        <td>Morning Brief</td>
-        <td>ห้องปฏิบัติการ ศปก.ทบ.</td>
-      </tr>
-
-      <tr>
-        <td>ผอ.สจว.กร.ทบ.</td>
-        <td>-</td>
-        <td>ดูกิจการและศึกษาดูงานภูมิประเทศ ณ ต่างประเทศ (10-26 มี.ค. 61)</td>
-        <td></td>
-      </tr>
-
-      <tr>
-        <td>ที่ปรึกษา จก.ฯ<br>(พล.ต.ประดิษฐ์ฯ)</td>
-        <td>-</td>
-        <td>ปฏิบัติภารกิจ กร.ทบ.</td>
-        <td></td>
-      </tr>
-
-      <tr>
-        <td>รอง ผบ.รร.กร.ฯ</td>
-        <td>-</td>
-        <td>ดูกิจการและศึกษาดูงานภูมิประเทศ ณ ต่างประเทศ (10-26 มี.ค. 61)</td>
-        <td></td>
-      </tr>
+          for ($index=0 ; $index<$json_count ; $index++) { ?>
+            <tr>
+              <td><?php echo $cmd_data[$index]["ผู้ปฏิบัติ"]; ?></td>
+              <td class="center"><?php echo $cmd_data[$index]["เวลา"]; ?></td>
+              <td><?php echo $cmd_data[$index]["รายการปฏิบัติ"]; ?></td>
+              <td><?php echo $cmd_data[$index]["สถานที่"]; ?></td>
+            </tr>
+        <?php  }
+      ?>
 
     </table>
   </div>
