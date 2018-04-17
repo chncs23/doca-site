@@ -9,6 +9,7 @@
   <?php
   include('../thaidate.php');
   include('../daycolor.php');
+  date_default_timezone_set("Asia/Bangkok");
   ?>
 
   <style>
@@ -75,7 +76,7 @@ function get_current_temperature($json_temperature, $province){
 
   for ($index=0 ; $index<$count ; $index++) {
 
-    $current_province = $temperature_data[$index]["StationNameTh"];
+    $current_province = $temperature_data[$index]["Province"];
     if($current_province==$province) {
       return $temperature_data[$index]["Observe"]["Temperature"]["Value"];
     }
