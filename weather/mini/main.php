@@ -2,18 +2,26 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <title>พยากรณ์อากาศ</title>
-  <link rel="stylesheet" href="../bootstrap4/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../bootstrap4/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="../bootstrap4/js/bootstrap.min.js"></script>
+  <script src="../../bootstrap4/js/bootstrap.min.js"></script>
   <link href="https://fonts.googleapis.com/css?family=Trirong" rel="stylesheet">
   <?php
-  include('../thaidate.php');
-  include('../daycolor.php');
+  include('../../thaidate.php');
+  include('../../daycolor.php');
   date_default_timezone_set("Asia/Bangkok");
   ?>
 
   <style>
   <?php $bgcolor=get_day_color(time()); ?>
+
+  .heading {
+    font-size: 40px;
+  }
+
+  .temperature_txt {
+    font-size: 75px;
+  }
 
   .alt-grid [class*="col-"] {padding-left:15;padding-right:15}
   .alt-grid .row {margin-left:0;margin-right:0}
@@ -62,7 +70,7 @@
 
   @font-face {
     font-family: cschatthai;
-    src: local(cschatthai), url('../fonts/CSChatThaiUI.ttf') format('truetype');
+    src: local(cschatthai), url('../../fonts/CSChatThaiUI.ttf') format('truetype');
   }
 
   </style>
@@ -85,31 +93,31 @@ function get_current_temperature($json_temperature, $province){
 
  function get_weather_icon($description){
    if($description == "Clear"){
-     return "img/clear.png";
+     return "../img/clear.png";
    }else if($description == "Partly Cloudy"){
-     return "img/partlycloudy.png";
+     return "../img/partlycloudy.png";
    }else if($description == "Cloudy"){
-     return "img/cloudy.png";
+     return "../img/cloudy.png";
    }else if($description == "Overcast"){
-     return "img/overcast.png";
+     return "../img/overcast.png";
    }else if($description == "Light Rain"){
-     return "img/lightrain.png";
+     return "../img/lightrain.png";
    }else if($description == "Moderate rain"){
-     return "img/moderaterain.png";
+     return "../img/moderaterain.png";
    }else if($description == "Heavy Rain"){
-     return "img/heavyrain.png";
+     return "../img/heavyrain.png";
    }else if($description == "Thunder Storm"){
-     return "img/thunderstorm.png";
+     return "../img/thunderstorm.png";
    }else if($description == "Very cold"){
-     return "img/cool.png";
+     return "../img/cool.png";
    }else if($description == "Cold"){
-     return "img/cool.png";
+     return "../img/cool.png";
    }else if($description == "Cool"){
-     return "img/cool.png";
+     return "../img/cool.png";
    }else if($description == "Very hot"){
-     return "img/veryhot.png";
+     return "../img/veryhot.png";
    }else{
-     return "img/clear.png";
+     return "../img/clear.png";
    }
  }
 
@@ -119,35 +127,18 @@ function get_current_temperature($json_temperature, $province){
 
 <body class="alt-grid">
 
-  <div class="container-fluid">
+  <div class="container-fluid" >
 
       <div class="title">
-        <h1 class="center">พยากรณ์อากาศประจำ<?php echo thai_date(time()); ?></h1>
+        <h1 class="heading center">พยากรณ์อากาศ</h1>
+        <h1 class="heading center"><?php echo thai_date_short(time()); ?></h1>
       </div>
 
-      <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel" data-interval="15000">
+      <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel" data-interval="10000">
         <div class="carousel-inner">
-          <div class="carousel-item active">
-            <?php include('center.php');  ?>
-          </div>
-          <div class="carousel-item">
-            <?php include('north.php');  ?>
-          </div>
-          <div class="carousel-item">
-            <?php include('northeast.php');  ?>
-          </div>
-          <div class="carousel-item">
-            <?php include('east.php');  ?>
-          </div>
-          <div class="carousel-item">
-            <?php include('south-east.php');  ?>
-          </div>
-          <div class="carousel-item">
-            <?php include('south-west.php');  ?>
-          </div>
+            <?php include('base.php');  ?>
         </div>
       </div>
-
 
   </div>
 </body>
