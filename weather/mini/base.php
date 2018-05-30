@@ -12,8 +12,7 @@
             for ($index=0 ; $index<$forecast_count ; $index++) {
               $province_name = $province_data[$index]["ProvinceNameTh"];
               if($province_name==$province_list[$province_index]) {
-                $province_data_today = $province_data[$index]["SevenDaysForecast"][$province_index];
-                echo $index." ".$province_index;
+                $province_data_today = $province_data[$index]["SevenDaysForecast"][0];
 
               echo ($province_index == 0) ? "<div class=\"carousel-item active\">" : "<div class=\"carousel-item\">";
               ?>

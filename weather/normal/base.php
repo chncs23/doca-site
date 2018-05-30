@@ -14,7 +14,7 @@
 
               $province_name = $province_data[$index]["ProvinceNameTh"];
               if($province_name==$province_list[$province_index]) {
-                $province_data_today = $province_data[$index]["SevenDaysForecast"][$province_index];
+                $province_data_today = $province_data[$index]["SevenDaysForecast"][0];
               ?>
 
               <div class="col-md-3 padding">
