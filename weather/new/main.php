@@ -15,22 +15,6 @@
   <style>
   <?php $bgcolor=get_day_color(time()); ?>
 
-  .heading {
-    font-size: 42px;
-  }
-
-  .heading-title {
-    font-size: 30px;
-  }
-
-  .temperature_txt {
-    font-size: 65px;
-  }
-
-  .sub-temperature-txt {
-    font-size: 60px;
-  }
-
   .alt-grid [class*="col-"] {padding-left:15;padding-right:15}
   .alt-grid .row {margin-left:0;margin-right:0}
 
@@ -40,6 +24,10 @@
   .title {
     padding: 25px;
     background-color:<?php echo $bgcolor; ?>;
+  }
+
+  .heading {
+    font-size: 40px;
   }
 
   .region-title {
@@ -64,51 +52,38 @@
   }
 
   .iconsize{
-    width: 50%;
+    width: 40%;
+  }
+
+  .temperature_txt {
+    font-size: 60px;
+  }
+
+  .sub-temperature-txt {
+    font-size: 60px;
+  }
+
+  .low {
+    color: #15589e;
+  }
+
+  .high {
+    color: #be0c32;
   }
 
   body {
-    font-family: 'CSChatThai', serif;
-    color: 000000;
+    font-family: 'cschatthai', serif;
   }
 
   .table {
     font-size: 120%;
   }
 
-  .forecast-bg {
-    background-image: url("../img/bg.jpg");
-    background-position: center;
-  }
-
-  .trans-box {
-    background:rgba(255,255,255,0.5);
-    padding: 10px;
-  }
-
-  .current-box {
-    background:rgba(54, 214, 99, 0.65);
-    padding: 10px;
-  }
-
-  .high-box {
-    background:rgba(255, 0, 0, 0.4);
-    padding: 10px;
-  }
-
-  .low-box {
-    background:rgba(0, 126, 196, 0.4);
-    padding: 10px;
-  }
-
-  .text-white {
-    color: white;
-  }
-
   @font-face {
-    font-family: CSChatThai;
+    font-family: cschatthai;
     src: local(cschatthai), url('../../fonts/CSChatThaiUI.ttf') format('truetype');
   }
+
   </style>
 </head>
 
@@ -151,9 +126,9 @@ function get_current_temperature($json_temperature, $province){
    }else if($description == "Cool"){
      return "../img/cool.png";
    }else if($description == "Very hot"){
-     return "../img/veryhot.png";
+     return "img/veryhot.png";
    }else{
-     return "../img/clear.png";
+     return "img/clear.png";
    }
  }
 
@@ -163,18 +138,35 @@ function get_current_temperature($json_temperature, $province){
 
 <body class="alt-grid">
 
-  <div class="container-fluid" >
+  <div class="container-fluid">
 
       <div class="title">
-        <h1 class="heading center">พยากรณ์อากาศ</h1>
-        <h1 class="heading center"><?php echo thai_date_short(time()); ?></h1>
+        <h1 class="center">พยากรณ์อากาศประจำ<?php echo thai_date(time()); ?></h1>
       </div>
 
-      <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel" data-interval="10000">
+      <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel" data-interval="15000">
         <div class="carousel-inner">
-            <?php include('base.php');  ?>
+          <div class="carousel-item active">
+            <?php include('center.php');  ?>
+          </div>
+          <div class="carousel-item">
+            <?php include('north.php');  ?>
+          </div>
+          <div class="carousel-item">
+            <?php include('northeast.php');  ?>
+          </div>
+          <div class="carousel-item">
+            <?php include('east.php');  ?>
+          </div>
+          <div class="carousel-item">
+            <?php include('south-east.php');  ?>
+          </div>
+          <div class="carousel-item">
+            <?php include('south-west.php');  ?>
+          </div>
         </div>
       </div>
+
 
   </div>
 </body>
